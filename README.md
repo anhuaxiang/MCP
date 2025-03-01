@@ -12,6 +12,8 @@ EduBase is an innovative, modular, online educational platform that makes learni
 
 ## Tools
 
+Each documented API endpoint is available as a separate tool, named `edubase_<method>_<endpoint>`. For example, the tool for the `GET /user` endpoint is named `edubase_get_user`. See our [developer documentation](https://developer.edubase.net) for more information.
+
 ## Usage with Claude Desktop
 
 Add the following to your `claude_desktop_config.json`:
