@@ -36,6 +36,35 @@ Add the following to your `claude_desktop_config.json`:
 }
 ```
 
+### docker
+
+```json
+{
+  "mcpServers": {
+    "edubase": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "EDUBASE_API_URL",
+        "-e",
+        "EDUBASE_API_APP",
+        "-e",
+        "EDUBASE_API_KEY",
+        "edubase/mcp"
+      ],
+      "env": {
+        "EDUBASE_API_URL": "https://domain.edubase.net/api",
+        "EDUBASE_API_APP": "your_integration_app_id",
+        "EDUBASE_API_KEY": "your_integration_secret_key"
+      }
+    }
+  }
+}
+```
+
 ## Contact
 
 Website: [www.edubase.net](www.edubase.net)  
