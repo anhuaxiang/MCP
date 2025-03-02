@@ -31,7 +31,7 @@ export const EDUBASE_API_TOOLS_USERS: Tool[] = [
 				},
 				password: {
 					type: 'string',
-					description: 'password (4-64 characters). If not provided, a random initial password is generated'
+					description: 'password (4-64 characters) (default: initial random password is automatically generated)'
 				},
 				first_name: {
 					type: 'string',
@@ -67,7 +67,7 @@ export const EDUBASE_API_TOOLS_USERS: Tool[] = [
 				},
 				exam: {
 					type: 'boolean',
-					description: 'user is only allowed to login when accessing exams'
+					description: 'user is only allowed to login when accessing exams (default: false)'
 				},
 				group: {
 					type: 'string',
@@ -75,27 +75,27 @@ export const EDUBASE_API_TOOLS_USERS: Tool[] = [
 				},
 				template: {
 					type: 'string',
-					description: 'a template ID for the new account'
+					description: 'a template ID for the new account (default: none)'
 				},
 				language: {
 					type: 'string',
-					description: 'desired account language'
+					description: 'desired account language (default: API application owner\'s language)'
 				},
 				timezone: {
 					type: 'string',
-					description: 'desired timezone'
+					description: 'desired timezone (default: API application owner\'s timezone)'
 				},
 				color: {
 					type: 'string',
-					description: 'desired favorite color (default/branding/red/blue/yellow/green/purple)'
+					description: 'desired favorite color (default/branding/red/blue/yellow/green/purple) (default: default)'
 				},
 				must_change_password: {
 					type: 'boolean',
-					description: 'user is forced to change password on first login'
+					description: 'user is forced to change password on first login (default: false)'
 				},
 				notify: {
 					type: 'boolean',
-					description: 'notify user via email (or SMS)'
+					description: 'notify user via email (or SMS) (default: false)'
 				},
 			},
 			required: ['username', 'first_name', 'last_name', 'email'],
@@ -235,11 +235,11 @@ export const EDUBASE_API_TOOLS_USERS: Tool[] = [
 				},
 				expires: {
 					type: 'string',
-					description: 'expiry in days (1-30) or YYYY-MM-DD'
+					description: 'expiry in days (1-30) or YYYY-MM-DD (default: 1 day)'
 				},
 				logins: {
 					type: 'number',
-					description: 'total count the link can be used to login users'
+					description: 'total count the link can be used to login users (default: 1)'
 				},
 				template: {
 					type: 'string',
@@ -247,7 +247,7 @@ export const EDUBASE_API_TOOLS_USERS: Tool[] = [
 				},
 				short: {
 					type: 'boolean',
-					description: 'generate shortened (eduba.se) link (only if feature is enabled on EduBase)'
+					description: 'generate shortened (eduba.se) link (only if feature is enabled on EduBase) (default: false)'
 				},
 			},
 			required: ['user'],
