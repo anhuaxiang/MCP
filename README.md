@@ -1,4 +1,4 @@
-<img src="https://static.edubase.net/media/brand/title/color.png" height="150" />
+<img src="https://static.edubase.net/media/brand/title/color.png" alt="EduBase logo" height="150" />
 
 # EduBase MCP server
 
@@ -26,9 +26,7 @@ From higher education institutions to corporate training departments, EduBase sc
 
 Once logged in, on your Dashboard, search for the Integrations menu, click "add integration" and choose the type "EduBase API".
 
-<div align="center">
-  <img src="https://shared.edubase.net/mcp/EduBase_Integration_page_with_API_credentials.png" alt="EduBase API credentials page" width="500" />
-</div>
+<img src="https://shared.edubase.net/mcp/EduBase_Integration_page_with_API_credentials.png" alt="EduBase API credentials page" width="500" />
 
 If you don't see this option, feel free to contact us to request access at [info@edubase.net](mailto:info@edubase.net).
 
