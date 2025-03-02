@@ -107,7 +107,7 @@ async function sendEduBaseApiRequest(method: string, endpoint: string, data: obj
 		headers: headers
 	});
 	if (!response.ok) {
-		throw new Error(`EduBase API error: ${response.status} ${response.statusText}\n${await response.text()}`);
+		throw new Error(`EduBase API error: ${response.status} ${response.statusText}` + (response.headers.has('EduBase-API-Error') ? ` (${response.headers.get('EduBase-API-Error')})` : ''));
 	}
 
 	/* Parse response and return as object */
