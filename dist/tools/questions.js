@@ -40,7 +40,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS = [
                 },
                 answer_order: {
                     type: 'string',
-                    description: 'whether the order of answers matters (+ for yes, - or blank for no)'
+                    description: 'whether the order of answers matters (+ for yes, - or blank for no) (default: no)'
                 },
                 answer_label: {
                     type: 'string',
@@ -48,15 +48,15 @@ export const EDUBASE_API_TOOLS_QUESTIONS = [
                 },
                 answer_hide: {
                     type: 'string',
-                    description: 'hide correct answers on results page (+ for yes, - or blank for no)'
+                    description: 'hide correct answers on results page (+ for yes, - or blank for no) (default: no)'
                 },
                 answer_indefinite: {
                     type: 'string',
-                    description: 'allow any number of input fields to be entered by the user (+ for yes, - or blank for no)'
+                    description: 'allow any number of input fields to be entered by the user (+ for yes, - or blank for no) (default: no)'
                 },
                 answer_format: {
                     type: 'string',
-                    description: 'how to display the answer on the results page (normal or code:language)'
+                    description: 'how to display the answer on the results page (normal or code:language) (default: normal)'
                 },
                 answer_require: {
                     type: 'string',
@@ -72,7 +72,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS = [
                 },
                 path: {
                     type: 'string',
-                    description: 'path where question will be stored in personal QuestionBase'
+                    description: 'path where question will be stored in personal QuestionBase (default: /API)'
                 },
                 options: {
                     type: 'string',
@@ -88,11 +88,11 @@ export const EDUBASE_API_TOOLS_QUESTIONS = [
                 },
                 points: {
                     type: 'string',
-                    description: 'maximum points for a fully correct answer'
+                    description: 'maximum points for a fully correct answer (default: 1)'
                 },
                 subscoring: {
                     type: 'string',
-                    description: 'method for calculating partial credit (PROPORTIONAL, LINEAR_SUBSTRACTED:N, CUSTOM, NONE)'
+                    description: 'method for calculating partial credit (PROPORTIONAL, LINEAR_SUBSTRACTED:N, CUSTOM, NONE) (default: PROPORTIONAL)'
                 },
                 subpoints: {
                     type: 'string',
@@ -100,7 +100,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS = [
                 },
                 penalty_scoring: {
                     type: 'string',
-                    description: 'how penalty points should be applied (DEFAULT, PER_ANSWER, PER_QUESTION)'
+                    description: 'how penalty points should be applied (DEFAULT, PER_ANSWER, PER_QUESTION) (default: DEFAULT)'
                 },
                 penalty_points: {
                     type: 'string',
@@ -108,19 +108,19 @@ export const EDUBASE_API_TOOLS_QUESTIONS = [
                 },
                 hint_penalty: {
                     type: 'string',
-                    description: 'point deduction for using hints (NONE, ONCE:N%, PER-HELP:N%)'
+                    description: 'point deduction for using hints (NONE, ONCE:N%, PER-HELP:N%) (default: NONE)'
                 },
                 solution_penalty: {
                     type: 'string',
-                    description: 'point deduction for viewing steps of the solution (NONE, ONCE:N%)'
+                    description: 'point deduction for viewing steps of the solution (NONE, ONCE:N%) (default: NONE)'
                 },
                 video_penalty: {
                     type: 'string',
-                    description: 'point deduction for video assistance used (NONE, ONCE:N%)'
+                    description: 'point deduction for video assistance used (NONE, ONCE:N%) (default: NONE)'
                 },
                 manual_scoring: {
                     type: 'string',
-                    description: 'when to enable manual scoring (NO, NOT_CORRECT, ALWAYS)'
+                    description: 'when to enable manual scoring (NO, NOT_CORRECT, ALWAYS) (default: NO)'
                 },
                 parameters: {
                     type: 'string',
@@ -128,23 +128,23 @@ export const EDUBASE_API_TOOLS_QUESTIONS = [
                 },
                 parameters_sync: {
                     type: 'string',
-                    description: 'synchronization of LIST parameters selection (+ for yes, - or blank for no)'
+                    description: 'synchronization of LIST parameters selection (+ for yes, - or blank for no) (default: no)'
                 },
                 expression_check: {
                     type: 'string',
-                    description: 'define how expressions should be validated (RANDOM, EXPLICIT, COMPARE)'
+                    description: 'define how expressions should be validated (RANDOM, EXPLICIT, COMPARE) (default: RANDOM)'
                 },
                 expression_variable: {
                     type: 'string',
-                    description: 'specifies variable names used in expressions (separate multiple variables with &&&)'
+                    description: 'specifies variable names used in expressions (separate multiple variables with &&&) (default: x)'
                 },
                 expression_decimals: {
                     type: 'string',
-                    description: 'sets precision for decimal calculations'
+                    description: 'sets precision for decimal calculations (default: 2)'
                 },
                 expression_functions: {
                     type: 'string',
-                    description: 'controls whether functions can be used in user inputs (+ for yes, - for no)'
+                    description: 'controls whether functions can be used in user inputs (+ for yes, - for no) (default: +)'
                 },
                 expression_random_type: {
                     type: 'string',
@@ -152,7 +152,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS = [
                 },
                 expression_random_tries: {
                     type: 'string',
-                    description: 'number of validation points'
+                    description: 'number of validation points (default: 5)'
                 },
                 expression_random_range: {
                     type: 'string',

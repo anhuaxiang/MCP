@@ -76,7 +76,7 @@ export const EDUBASE_API_TOOLS_CLASSES = [
                 },
                 notify: {
                     type: 'boolean',
-                    description: 'notify users'
+                    description: 'notify users (default: false)'
                 },
             },
             required: ['class', 'users'],
@@ -122,7 +122,7 @@ export const EDUBASE_API_TOOLS_CLASSES = [
                 },
                 notify: {
                     type: 'boolean',
-                    description: 'notify users'
+                    description: 'notify users (default: false)'
                 },
             },
             required: ['classes', 'users'],
@@ -164,7 +164,7 @@ export const EDUBASE_API_TOOLS_CLASSES = [
                 },
                 notify: {
                     type: 'boolean',
-                    description: 'notify user'
+                    description: 'notify user (default: false)'
                 },
             },
             required: ['user', 'classes'],
