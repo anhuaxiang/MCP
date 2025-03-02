@@ -26,6 +26,10 @@ From higher education institutions to corporate training departments, EduBase sc
 
 Once logged in, on your Dashboard, search for the Integrations menu, click "add integration" and choose the type "EduBase API".
 
+![EduBase API credentials page](images/EduBase%20Integration%20page%20with%20API%20credentials.png)
+
+If you don't see this option, feel free to contact us to request access at [info@edubase.net](mailto:info@edubase.net).
+
 ## Tools
 
 Each documented API endpoint is available as a separate tool, named `edubase_<method>_<endpoint>`. For example, the tool for the `GET /user` endpoint is named `edubase_get_user`. See our [developer documentation](https://developer.edubase.net) for more information.
