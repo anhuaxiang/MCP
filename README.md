@@ -6,9 +6,31 @@
 
 This repository contains the **implementation of the Model Context Protocol** (MCP) server **for the EduBase platform**. It allows MCP clients (for example Claude Desktop) and LLMs to interact with your EduBase account and perform tasks on your behalf.
 
-## What is EduBase? Briefly, in one sentence:
+## What is EduBase?
 
 EduBase is an innovative, modular, online educational platform that makes learning more enjoyable, simpler and interactive, suitable for educational institutions or enterprises.
+
+### Why choose EduBase?
+
+EduBase revolutionizes digital learning with its unique combination of features:
+
+* **Advanced Quiz System** with parametrization allowing infinite variations of the same question, real-time cheating detection, beautiful LaTeX typesetting, advanced STEM-support and automatic grading
+* **Unified Learning Environment** that centralizes all your educational content — videos, exams, documents, and SCORM modules — in one intuitive system
+* **Enterprise-Grade Security** with features like SSO integration, fine-grained access controls, comprehensive auditing, and GDPR compliance
+* **Integration** with your existing systems through LTI, comprehensive API, and custom integration options
+* **AI-Assisted Tools**, such as EduBase Assistant, that can instantly transform your existing content into interactive quizzes and assessments, or translate your materials from one language to another
+
+From higher education institutions to corporate training departments, EduBase scales to meet your specific needs while maintaining an intuitive user experience across all devices.
+
+### Obtaining your API credentials
+
+Once logged in, on your Dashboard, search for the Integrations menu, click "add integration" and choose the type "EduBase API".
+
+<div align="center">
+  <img src="https://shared.edubase.net/mcp/EduBase_Integration_page_with_API_credentials.png" alt="EduBase API credentials page" width="500" />
+</div>
+
+If you don't see this option, feel free to contact us to request access at [info@edubase.net](mailto:info@edubase.net).
 
 ## Tools
 
