@@ -302,27 +302,7 @@ export const EDUBASE_API_TOOLS_ORGANIZATIONS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /organization:members - Remove user(s) from an organization
-    edubase_delete_organization_members: {
-        type: 'object',
-        properties: {
-            organization: {
-                type: 'string',
-                description: 'organization identification string'
-            },
-            status: {
-                type: 'boolean',
-                description: 'operation successful'
-            },
-            message: {
-                type: 'string',
-                description: 'status message'
-            },
-            count: {
-                type: 'number',
-                description: 'number of users removed'
-            },
-        },
-    },
+    edubase_delete_organization_members: {},
     // POST /organizations:members - Assign user(s) to organization(s)
     edubase_post_organizations_members: {
         type: 'object',
@@ -413,25 +393,5 @@ export const EDUBASE_API_TOOLS_ORGANIZATIONS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /user:organizations - Remove user from organization(s)
-    edubase_delete_user_organizations: {
-        type: 'object',
-        properties: {
-            user: {
-                type: 'string',
-                description: 'user identification string'
-            },
-            status: {
-                type: 'boolean',
-                description: 'operation successful'
-            },
-            message: {
-                type: 'string',
-                description: 'status message'
-            },
-            count: {
-                type: 'number',
-                description: 'number of organizations the user was removed from'
-            },
-        },
-    },
+    edubase_delete_user_organizations: {},
 };

@@ -371,6 +371,9 @@ export const EDUBASE_API_TOOLS_USERS_OUTPUT_SCHEMA: object = {
 		},
 	},
 
+	// DELETE /user - Delete user
+	edubase_delete_user:{},
+
 	// GET /user:name - Get user's name
 	edubase_get_user_name: {
 		type: 'object',
@@ -493,6 +496,9 @@ export const EDUBASE_API_TOOLS_USERS_OUTPUT_SCHEMA: object = {
 		},
 	},
 
+	// DELETE /user:login - Delete a previously generated login link
+	edubase_delete_user_login:{},
+
 	// GET /user:search - Lookup user by email, username or code
 	edubase_get_user_search: {
 		type: 'object',
@@ -526,4 +532,7 @@ export const EDUBASE_API_TOOLS_USERS_OUTPUT_SCHEMA: object = {
 			},
 		},
 	},
+
+	// DELETE /user:assume - Revoke assume token
+	edubase_delete_user_assume:{},
 };

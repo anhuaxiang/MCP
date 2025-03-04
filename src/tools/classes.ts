@@ -343,27 +343,7 @@ export const EDUBASE_API_TOOLS_CLASSES_OUTPUT_SCHEMA: object = {
 	},
 
 	// DELETE /class:members - Remove user(s) from a class
-	edubase_delete_class_members: {
-		type: 'object',
-		properties: {
-			class: {
-				type: 'string',
-				description: 'class identification string'
-			},
-			status: {
-				type: 'boolean',
-				description: 'operation successful'
-			},
-			message: {
-				type: 'string',
-				description: 'status message'
-			},
-			count: {
-				type: 'number',
-				description: 'number of users removed'
-			},
-		},
-	},
+	edubase_delete_class_members: {},
 
 	// POST /classes:members - Assign user(s) to class(es)
 	edubase_post_classes_members: {
@@ -444,25 +424,5 @@ export const EDUBASE_API_TOOLS_CLASSES_OUTPUT_SCHEMA: object = {
 	},
 
 	// DELETE /user:classes - Remove user from class(es)
-	edubase_delete_user_classes: {
-		type: 'object',
-		properties: {
-			user: {
-				type: 'string',
-				description: 'user identification string'
-			},
-			status: {
-				type: 'boolean',
-				description: 'operation successful'
-			},
-			message: {
-				type: 'string',
-				description: 'status message'
-			},
-			count: {
-				type: 'number',
-				description: 'number of classes the user was removed from'
-			},
-		},
-	},
+	edubase_delete_user_classes: {},
 };

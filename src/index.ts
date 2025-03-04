@@ -111,7 +111,14 @@ async function sendEduBaseApiRequest(method: string, endpoint: string, data: obj
 	}
 
 	/* Parse response and return as object */
-	return await response.json();
+	let clonedResponse = response.clone();
+	try {
+		/* First try to decode as JSON */
+		return await response.json();
+	} catch (error) {
+		/* Response might be empty string with a 200 status code */
+		return await clonedResponse.text();
+	}
 }
 
 /* Configure request handlers */
@@ -135,10 +142,25 @@ server.setRequestHandler(CallToolRequestSchema, async (request: CallToolRequest)
 
 		/* Return response */
 		const outputSchemaKey = name as keyof typeof EDUBASE_API_TOOLS_OUTPUT_SCHEMA;
-		return {
-			content: [{ type: 'text', text: "Response: " + JSON.stringify(response) + "\nResponse schema: " + JSON.stringify(EDUBASE_API_TOOLS_OUTPUT_SCHEMA[outputSchemaKey]) }],
-			isError: false,
-		};
+		if (typeof EDUBASE_API_TOOLS_OUTPUT_SCHEMA[outputSchemaKey] == 'object' && Object.keys(EDUBASE_API_TOOLS_OUTPUT_SCHEMA[outputSchemaKey]).length == 0 && typeof response == 'string' && response.length == 0) {
+			/* Endpoint without response */
+			return {
+				content: [{ type: 'text', text: 'Success.' }],
+				isError: false,
+			};
+		}
+		else if (typeof response != 'object') {
+			/* Response should be an object at this point */
+			throw new Error('Invalid response');
+		}
+		else
+		{
+			/* Return response with optional schema */
+			return {
+				content: [{ type: 'text', text: "Response: " + JSON.stringify(response) + (Object.keys(EDUBASE_API_TOOLS_OUTPUT_SCHEMA[outputSchemaKey]).length > 0 ? "\nResponse schema: " + JSON.stringify(EDUBASE_API_TOOLS_OUTPUT_SCHEMA[outputSchemaKey]) : '') }],
+				isError: false,
+			};
+		}
 	} catch (error) {
 		/* Request failed */
 		return {

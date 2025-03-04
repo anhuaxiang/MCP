@@ -117,25 +117,5 @@ export const EDUBASE_API_TOOLS_QUIZES_OUTPUT_SCHEMA: object = {
 	},
 
 	// DELETE /quiz:questions - Remove question(s) from a Quiz set
-	edubase_delete_quiz_questions: {
-		type: 'object',
-		properties: {
-			quiz: {
-				type: 'string',
-				description: 'Quiz identification string'
-			},
-			status: {
-				type: 'boolean',
-				description: 'operation successful'
-			},
-			message: {
-				type: 'string',
-				description: 'status message'
-			},
-			count: {
-				type: 'number',
-				description: 'number of questions removed'
-			},
-		},
-	},
+	edubase_delete_quiz_questions: {},
 };

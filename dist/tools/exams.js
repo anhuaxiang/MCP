@@ -184,25 +184,5 @@ export const EDUBASE_API_TOOLS_EXAMS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /exam:users - Remove user(s) from an exam
-    edubase_delete_exam_users: {
-        type: 'object',
-        properties: {
-            exam: {
-                type: 'string',
-                description: 'exam identification string'
-            },
-            status: {
-                type: 'boolean',
-                description: 'operation successful'
-            },
-            message: {
-                type: 'string',
-                description: 'status message'
-            },
-            count: {
-                type: 'number',
-                description: 'number of users removed'
-            },
-        },
-    },
+    edubase_delete_exam_users: {},
 };

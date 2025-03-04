@@ -278,21 +278,5 @@ export const EDUBASE_API_TOOLS_QUESTIONS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /question - Permanently delete a question
-    edubase_delete_question: {
-        type: 'object',
-        properties: {
-            id: {
-                type: 'string',
-                description: 'external unique question identifier'
-            },
-            status: {
-                type: 'boolean',
-                description: 'deletion successful'
-            },
-            message: {
-                type: 'string',
-                description: 'status message'
-            },
-        },
-    },
+    edubase_delete_question: {},
 };
