@@ -27,7 +27,24 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 			properties: {
 				id: {
 					type: 'string',
-					description: 'external unique question identifier'
+					description: 
+						"External unique question identifier for question management.\n" +
+						"On repeated uploads, the questions are updated (rather then added) based on this value, which can be an arbitrary text.\n" +
+						"If the question already exists at upload time with the same external identifier (in the given folder or Quiz set), the existing question will be updated instead of being added as a new one.\n" +
+						"- Use cases:\n" +
+						" - Integration with external systems\n" +
+						" - Version control\n" +
+						" - Batch updates\n" +
+						" - Content synchronization\n" +
+						"- Best practices:\n" +
+						" - Use consistent naming conventions\n" +
+						" - Include version, source or date information\n" +
+						" - Consider hierarchical IDs for related content\n" +
+						"Example:\n" +
+						"- id=MATHEMATICS_ARITHMETIC_BASIC_ADDITION_STATIC_001\n" +
+						"- type=numerical\n" +
+						"- question=What is 2+2?\n" +
+						"- answer=4"
 				},
 				type: {
 					type: 'string',
