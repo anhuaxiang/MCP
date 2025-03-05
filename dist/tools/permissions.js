@@ -1,5 +1,4 @@
 /* Tool definitions */
-/* Tool definitions */
 export const EDUBASE_API_TOOLS_PERMISSIONS = [
     // GET /class:permission - Check if a user has permission on a class
     {

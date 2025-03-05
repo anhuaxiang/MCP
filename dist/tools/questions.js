@@ -38,6 +38,12 @@ export const EDUBASE_API_TOOLS_QUESTIONS = [
                     type: 'string',
                     description: 'single or multiple answers or true statements (separate multiple answers with &&&)'
                 },
+                image: {
+                    type: 'string',
+                    description: "Attach an image to the question.\n" +
+                        "Supported formats: PNG, JPEG, WebP\n" +
+                        "Format: filename=data, where data is either a base64-encoded image or a URL"
+                },
                 answer_order: {
                     type: 'string',
                     description: 'whether the order of answers matters (+ for yes, - or blank for no) (default: no)'
@@ -114,6 +120,12 @@ export const EDUBASE_API_TOOLS_QUESTIONS = [
                     type: 'string',
                     description: 'point deduction for viewing steps of the solution (NONE, ONCE:N%) (default: NONE)'
                 },
+                solution_image: {
+                    type: 'string',
+                    description: "Attach an image to the solution steps.\n" +
+                        "Supported formats: PNG, JPEG, WebP\n" +
+                        "Format: filename=data, where data is either a base64-encoded image or a URL"
+                },
                 video_penalty: {
                     type: 'string',
                     description: 'point deduction for video assistance used (NONE, ONCE:N%) (default: NONE)'
@@ -174,12 +186,23 @@ export const EDUBASE_API_TOOLS_QUESTIONS = [
                     type: 'string',
                     description: 'enable additional mathematical functions (+ to enable, - to disable)'
                 },
+                attachment: {
+                    type: 'string',
+                    description: "Attach a file to the question.\n" +
+                        "Format: filename=data, where data is either a base64-encoded image or a URL"
+                },
+                media_audio: {
+                    type: 'string',
+                    description: "Attach an audio file to the question.\n" +
+                        "Supported formats: MP3, AAC, M4A\n" +
+                        "Format: filename=data, where data is either a base64-encoded image or a URL"
+                },
                 ai: {
                     type: 'string',
                     description: 'if set to any value, question will be marked as AI generated'
                 },
             },
-            required: ['id', 'type', 'question', 'answer'],
+            required: ['id', 'type', 'question', 'answer', 'ai'],
         },
     },
     // DELETE /question - Permanently delete a question
@@ -208,33 +231,13 @@ export const EDUBASE_API_TOOLS_QUESTIONS_OUTPUT_SCHEMA = {
                 type: 'string',
                 description: 'external unique question identifier'
             },
-            type: {
+            code: {
                 type: 'string',
-                description: 'type of the question'
+                description: 'question identification string'
             },
-            question: {
-                type: 'string',
-                description: 'question text'
-            },
-            answer: {
-                type: 'string',
-                description: 'single or multiple answers or true statements'
-            },
-            status: {
+            active: {
                 type: 'boolean',
-                description: 'question exists and is valid'
-            },
-            points: {
-                type: 'number',
-                description: 'maximum points for a fully correct answer'
-            },
-            subject: {
-                type: 'string',
-                description: 'subject'
-            },
-            category: {
-                type: 'string',
-                description: 'category'
+                description: 'question is active'
             },
         },
     },
@@ -242,38 +245,9 @@ export const EDUBASE_API_TOOLS_QUESTIONS_OUTPUT_SCHEMA = {
     edubase_post_question: {
         type: 'object',
         properties: {
-            id: {
+            code: {
                 type: 'string',
-                description: 'external unique question identifier'
-            },
-            status: {
-                type: 'boolean',
-                description: 'creation or update successful'
-            },
-            message: {
-                type: 'string',
-                description: 'status message'
-            },
-            validation: {
-                type: 'array',
-                description: 'validation issues if any',
-                items: {
-                    type: 'object',
-                    properties: {
-                        field: {
-                            type: 'string',
-                            description: 'field with issue'
-                        },
-                        message: {
-                            type: 'string',
-                            description: 'validation message'
-                        },
-                        severity: {
-                            type: 'string',
-                            description: 'severity level (warning, error)'
-                        }
-                    }
-                }
+                description: 'question identification string'
             },
         },
     },

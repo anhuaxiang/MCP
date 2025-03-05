@@ -1,7 +1,6 @@
 import { Tool } from "@modelcontextprotocol/sdk/types.js";
 
 /* Tool definitions */
-/* Tool definitions */
 export const EDUBASE_API_TOOLS_PERMISSIONS: Tool[] = [
 	// GET /class:permission - Check if a user has permission on a class
 	{

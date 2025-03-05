@@ -9,7 +9,8 @@ export const EDUBASE_API_TOOLS_USERS = [
             properties: {
                 user: {
                     type: 'string',
-                    description: 'user identification string'
+                    description: "User identification string.\n" +
+                        "- Use 'me' to get the current user."
                 },
             },
             required: ['user'],

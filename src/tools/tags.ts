@@ -8,7 +8,20 @@ export const EDUBASE_API_TOOLS_TAGS: Tool[] = [
 		description: "List owned and managed tags.",
 		inputSchema: {
 			type: 'object',
-			properties: {},
+			properties: {
+				search: {
+					type: 'string',
+					description: 'search string to filter results'
+				},
+				limit: {
+					type: 'number',
+					description: 'limit number of results (default, in search mode: 16)'
+				},
+				page: {
+					type: 'number',
+					description: 'page number (default: 1), not used in search mode!'
+				},
+			},
 			required: [],
 		},
 	},

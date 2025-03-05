@@ -8,7 +8,20 @@ export const EDUBASE_API_TOOLS_CLASSES: Tool[] = [
 		description: "List owned and managed classes.",
 		inputSchema: {
 			type: 'object',
-			properties: {},
+			properties: {
+				search: {
+					type: 'string',
+					description: 'search string to filter results'
+				},
+				limit: {
+					type: 'number',
+					description: 'limit number of results (default, in search mode: 16)'
+				},
+				page: {
+					type: 'number',
+					description: 'page number (default: 1), not used in search mode!'
+				},
+			},
 			required: [],
 		},
 	},
@@ -206,23 +219,17 @@ export const EDUBASE_API_TOOLS_CLASSES: Tool[] = [
 export const EDUBASE_API_TOOLS_CLASSES_OUTPUT_SCHEMA: object = {
 	// GET /classes - List owned and managed classes
 	edubase_get_classes: {
-		type: 'object',
-		properties: {
-			classes: {
-				type: 'array',
-				description: 'list of classes',
-				items: {
-					type: 'object',
-					properties: {
-						code: {
-							type: 'string',
-							description: 'class identification string'
-						},
-						name: {
-							type: 'string',
-							description: 'title of the class'
-						},
-					},
+		type: 'array',
+		items: {
+			type: 'object',
+			properties: {
+				code: {
+					type: 'string',
+					description: 'class identification string'
+				},
+				name: {
+					type: 'string',
+					description: 'title of the class'
 				},
 			},
 		},
@@ -253,39 +260,33 @@ export const EDUBASE_API_TOOLS_CLASSES_OUTPUT_SCHEMA: object = {
 
 	// GET /class:assignments - List all assignments in a class
 	edubase_get_class_assignments: {
-		type: 'object',
-		properties: {
-			assignments: {
-				type: 'array',
-				description: 'list of assignments',
-				items: {
-					type: 'object',
-					properties: {
-						code: {
-							type: 'string',
-							description: 'assignment identification string'
-						},
-						name: {
-							type: 'string',
-							description: 'title of the assignment'
-						},
-						link: {
-							type: 'string',
-							description: 'link to the assignment page'
-						},
-						status: {
-							type: 'string',
-							description: 'assignment and submission state (INACTIVE, ACTIVE, STARTED, SUBMITTED, GRADED)'
-						},
-						starts: {
-							type: 'string',
-							description: 'when the assignment submission starts'
-						},
-						ends: {
-							type: 'string',
-							description: 'when the assignment submission ends'
-						},
-					},
+		type: 'array',
+		items: {
+			type: 'object',
+			properties: {
+				code: {
+					type: 'string',
+					description: 'assignment identification string'
+				},
+				name: {
+					type: 'string',
+					description: 'title of the assignment'
+				},
+				link: {
+					type: 'string',
+					description: 'link to the assignment page'
+				},
+				status: {
+					type: 'string',
+					description: 'assignment and submission state (INACTIVE, ACTIVE, STARTED, SUBMITTED, GRADED)'
+				},
+				starts: {
+					type: 'string',
+					description: 'when the assignment submission starts'
+				},
+				ends: {
+					type: 'string',
+					description: 'when the assignment submission ends'
 				},
 			},
 		},
@@ -293,135 +294,63 @@ export const EDUBASE_API_TOOLS_CLASSES_OUTPUT_SCHEMA: object = {
 
 	// GET /class:members - List all members in a class
 	edubase_get_class_members: {
-		type: 'object',
-		properties: {
-			members: {
-				type: 'array',
-				description: 'list of members',
-				items: {
-					type: 'object',
-					properties: {
-						code: {
-							type: 'string',
-							description: 'user identification string'
-						},
-						name: {
-							type: 'string',
-							description: 'name of the member'
-						},
-						active: {
-							type: 'boolean',
-							description: 'active membership (approved and not expired)'
-						},
-					},
+		type: 'array',
+		items: {
+			type: 'object',
+			properties: {
+				code: {
+					type: 'string',
+					description: 'user identification string'
+				},
+				name: {
+					type: 'string',
+					description: 'name of the member'
+				},
+				active: {
+					type: 'boolean',
+					description: 'active membership (approved and not expired)'
 				},
 			},
 		},
 	},
 
 	// POST /class:members - Assign user(s) to a class
-	edubase_post_class_members: {
-		type: 'object',
-		properties: {
-			class: {
-				type: 'string',
-				description: 'class identification string'
-			},
-			status: {
-				type: 'boolean',
-				description: 'operation successful'
-			},
-			message: {
-				type: 'string',
-				description: 'status message'
-			},
-			count: {
-				type: 'number',
-				description: 'number of users added or updated'
-			},
-		},
-	},
+	edubase_post_class_members: {},
 
 	// DELETE /class:members - Remove user(s) from a class
 	edubase_delete_class_members: {},
 
 	// POST /classes:members - Assign user(s) to class(es)
-	edubase_post_classes_members: {
-		type: 'object',
-		properties: {
-			status: {
-				type: 'boolean',
-				description: 'operation successful'
-			},
-			message: {
-				type: 'string',
-				description: 'status message'
-			},
-			count: {
-				type: 'number',
-				description: 'number of users added or updated across all classes'
-			},
-		},
-	},
+	edubase_post_classes_members: {},
 
 	// GET /user:classes - List all classes a user is member of
 	edubase_get_user_classes: {
-		type: 'object',
-		properties: {
-			user: {
-				type: 'string',
-				description: 'user identification string'
-			},
-			classes: {
-				type: 'array',
-				description: 'list of classes',
-				items: {
-					type: 'object',
-					properties: {
-						code: {
-							type: 'string',
-							description: 'class identification string'
-						},
-						name: {
-							type: 'string',
-							description: 'title of the class'
-						},
-						link: {
-							type: 'string',
-							description: 'link to the class page'
-						},
-						active: {
-							type: 'boolean',
-							description: 'active membership (approved and not expired)'
-						},
-					},
+		type: 'array',
+		items: {
+			type: 'object',
+			properties: {
+				code: {
+					type: 'string',
+					description: 'class identification string'
+				},
+				name: {
+					type: 'string',
+					description: 'title of the class'
+				},
+				link: {
+					type: 'string',
+					description: 'link to the class page'
+				},
+				active: {
+					type: 'boolean',
+					description: 'active membership (approved and not expired)'
 				},
 			},
 		},
 	},
 
 	// POST /user:classes - Assign user to class(es)
-	edubase_post_user_classes: {
-		type: 'object',
-		properties: {
-			user: {
-				type: 'string',
-				description: 'user identification string'
-			},
-			status: {
-				type: 'boolean',
-				description: 'operation successful'
-			},
-			message: {
-				type: 'string',
-				description: 'status message'
-			},
-			count: {
-				type: 'number',
-				description: 'number of classes the user was added to or updated in'
-			},
-		},
-	},
+	edubase_post_user_classes: {},
 
 	// DELETE /user:classes - Remove user from class(es)
 	edubase_delete_user_classes: {},

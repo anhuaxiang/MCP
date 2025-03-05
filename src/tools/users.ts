@@ -11,7 +11,9 @@ export const EDUBASE_API_TOOLS_USERS: Tool[] = [
 			properties: {
 				user: {
 					type: 'string',
-					description: 'user identification string'
+					description:
+						"User identification string.\n" +
+						"- Use 'me' to get the current user."
 				},
 			},
 			required: ['user'],
