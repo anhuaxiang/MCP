@@ -24,7 +24,7 @@ import { EDUBASE_API_TOOLS, EDUBASE_API_TOOLS_OUTPUT_SCHEMA } from "./tools.js";
 /* Create MCP server */
 const server = new Server({
     name: '@edubase/mcp',
-    version: '1.0.6',
+    version: '1.0.7',
 }, {
     capabilities: {
         tools: {},

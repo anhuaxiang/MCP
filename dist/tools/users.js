@@ -1,5 +1,28 @@
 /* Tool definitions */
 export const EDUBASE_API_TOOLS_USERS = [
+    // GET /users - List managed, non-generated users
+    {
+        name: 'edubase_get_users',
+        description: "List managed, non-generated users.",
+        inputSchema: {
+            type: 'object',
+            properties: {
+                search: {
+                    type: 'string',
+                    description: 'search string to filter results'
+                },
+                limit: {
+                    type: 'number',
+                    description: 'limit number of results (default, in search mode: 16)'
+                },
+                page: {
+                    type: 'number',
+                    description: 'page number (default: 1), not used in search mode!'
+                },
+            },
+            required: [],
+        },
+    },
     // GET /user - Get/check user
     {
         name: 'edubase_get_user',
@@ -315,6 +338,23 @@ export const EDUBASE_API_TOOLS_USERS = [
 ];
 /* Output schema definitions */
 export const EDUBASE_API_TOOLS_USERS_OUTPUT_SCHEMA = {
+    // GET /users - List managed, non-generated users
+    edubase_get_users: {
+        type: 'array',
+        items: {
+            type: 'object',
+            properties: {
+                user: {
+                    type: 'string',
+                    description: 'user identification string'
+                },
+                name: {
+                    type: 'string',
+                    description: 'full name of the user'
+                },
+            },
+        },
+    },
     // GET /user - Get/check user
     edubase_get_user: {
         type: 'object',
@@ -333,7 +373,7 @@ export const EDUBASE_API_TOOLS_USERS_OUTPUT_SCHEMA = {
             },
             exam: {
                 type: 'boolean',
-                description: 'exam account'
+                description: 'exam (generated) account'
             },
         },
     },
@@ -485,7 +525,7 @@ export const EDUBASE_API_TOOLS_USERS_OUTPUT_SCHEMA = {
             },
             exam: {
                 type: 'boolean',
-                description: 'exam account'
+                description: 'exam (generated) account'
             },
         },
     },
