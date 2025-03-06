@@ -154,6 +154,50 @@ export const EDUBASE_API_TOOLS_EXAMS: Tool[] = [
 			required: ['exam', 'users'],
 		},
 	},
+
+	// POST /exam:summary - Submit a new exam summary
+	{
+		name: 'edubase_post_exam_summary',
+		description: "Submit a new AI exam summary.",
+		inputSchema: {
+			type: 'object',
+			properties: {
+				exam: {
+					type: 'string',
+					description: 'exam identification string'
+				},
+				language: {
+					type: 'string',
+					description: 'summary language'
+				},
+				type: {
+					type: 'string',
+					description:
+						"Type of summary. (default: ai)\n" +
+						"- ai: AI-generated summary"
+				},
+				summary: {
+					type: 'string',
+					description:
+						"Summary text. \n" +
+						"- basic HTML formatting allowed, but avoid complex designs\n" +
+						"- keep the summary short and concise\n" +
+						"- try to avoid including personal information (such as usernames, names and contact addresses)"
+				},
+				llm: {
+					type: 'string',
+					description:
+						"Name of the Large Language Model used to generate the summary.\n" +
+						"- preferred values: openai / claude / gemini"
+				},
+				model: {
+					type: 'string',
+					description: 'Exact LLM model name used to generate the summary'
+				},
+			},
+			required: ['exam', 'type', 'summary', 'llm', 'model'],
+		},
+	},
 ];
 
 /* Output schema definitions */
@@ -254,4 +298,7 @@ export const EDUBASE_API_TOOLS_EXAMS_OUTPUT_SCHEMA: object = {
 
 	// DELETE /exam:users - Remove user(s) from an exam
 	edubase_delete_exam_users: {},
+
+	// POST /exam:summary - Submit a new exam summary
+	edubase_post_exam_summary: {},
 };
