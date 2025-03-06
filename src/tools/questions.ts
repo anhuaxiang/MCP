@@ -100,6 +100,9 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 						"The correct answer(s) for the question.\n" +
 						"- For multiple answers, separate with triple-and operator (\"&&&\")\n" +
 						"- Parameters can be used in curly braces {param_name}\n" +
+						"- LaTeX Support (requires QUESTION_FORMAT=LATEX):\n" +
+						" - Inline: $$...$$\n" +
+						" - Block: $$$$...$$$$\n" +
 						"- Usage by question type:\n" +
 						" - CHOICE: The correct option\n" +
 						" - MULTIPLE-CHOICE: All correct options\n" +
@@ -255,6 +258,9 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 						"- For TRUE/FALSE, these are the false statements (ANSWER contains true statements)\n" +
 						"- Separate multiple options with triple-and operators (\"&&&\")\n" +
 						"- Parameters can be used in curly braces {param_name}\n" +
+						"- LaTeX Support (requires QUESTION_FORMAT=LATEX):\n" +
+						" - Inline: $$...$$\n" +
+						" - Block: $$$$...$$$$\n" +
 						"Example:\n" +
 						"options=London &&& Berlin &&& Madrid\n" +
 						"Example API call:\n" +
@@ -622,6 +628,117 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 						"Example:\n" +
 						"ai=true\n" +
 						"ai=Claude 3.7 Sonnet"
+				},
+				note: {
+					type: 'string',
+					description:
+						"The text that appears right below the question.\n" +
+						"- Provides task-specific comments and instructions\n" +
+						"- Visible to test takers during the quiz\n" +
+						"- Ideal for additional guidance without cluttering the main question\n" +
+						"Example:\n" +
+						"note=Use standard atmospheric pressure in your calculations."
+				},
+				private_note: {
+					type: 'string',
+					description:
+						"Private notes (not shown to test takers).\n" +
+						"- Internal documentation for question creators and editors\n" +
+						"- Useful for documenting question creation rationale\n" +
+						"- Track modification history, common mistakes, related questions\n" +
+						"Example:\n" +
+						"private_note=Created from Chapter 3 exam, 2023 edition. Students often forget to convert units."
+				},
+				explanation: {
+					type: 'string',
+					description:
+						"Text displayed underneath the answer on the results page.\n" +
+						"- Explanation of the correctness of the answer or the incorrectness of the options\n" +
+						"- Helps learners understand their mistakes\n" +
+						"- Parameters can be used in explanations\n" +
+						"- LaTeX is not supported here!\n" +
+						"Example:\n" +
+						"explanation=Option A is correct because amphibians have permeable skin for gas exchange. Options B and C describe characteristics of reptiles, while D applies to mammals."
+				},
+				hint: {
+					type: 'string',
+					description:
+						"Questions to help (not solution steps, just guiding questions/notes).\n" +
+						"- LaTeX code can be used (as described in QUESTION)\n" +
+						"- Specify multiple hints separated by triple-and operators (\"&&&\")\n" +
+						"- Not available for test takers in exam mode\n" +
+						"- Displayed only when explicitly requested, one by one\n" +
+						"- Can be penalized using HINT_PENALTY\n" +
+						"Example:\n" +
+						"hint=Think about the relationship between radius and area &&& Remember the formula for circle area involves $\\pi$ &&& Square the radius and multiply by $\\pi$"
+				},
+				solution: {
+					type: 'string',
+					description:
+						"Step-by-step solution.\n" +
+						"- LaTeX code can be used (as described in QUESTION)\n" +
+						"- Specify multiple solution steps separated by triple-and operators (\"&&&\")\n" +
+						"- Each step is displayed one at a time\n" +
+						"- Can be penalized using SOLUTION_PENALTY\n" +
+						"- Not available in exam mode\n" +
+						"Example:\n" +
+						"solution=Using the power rule, we differentiate each term: &&& For $x^2$: $\\frac{d}{dx}(x^2) = 2x$ &&& For $x$: $\\frac{d}{dx}(x) = 1$ &&& The constant term disappears: $\\frac{d}{dx}(5) = 0$ &&& Therefore, $\\frac{d}{dx}(x^2 + x + 5) = 2x + 1$"
+				},
+				source: {
+					type: 'string',
+					description:
+						"Specify source of question content (not shown to test takers).\n" +
+						"- Use cases include training material sources, documentation references, content attribution\n" +
+						"- Important for tracking question origins and copyright compliance\n" +
+						"Example:\n" +
+						"source=Mathematics Textbook Chapter 5, Page 123\n" +
+						"source=Company Safety Manual 2023, Section 3.4.2"
+				},
+				decimals: {
+					type: 'string',
+					description:
+						"Decimal precision (default: 2).\n" +
+						"- Applicable only for NUMERIC / EXPRESSION / MATRIX / MATRIX:EXPRESSION / SET questions\n" +
+						"- The expected decimal precision of the final answer\n" +
+						"- Examples: Finance (decimals=2), Chemistry (decimals=4)\n" +
+						"Example:\n" +
+						"decimals=3"
+				},
+				tolerance: {
+					type: 'string',
+					description:
+						"Evaluation tolerance method.\n" +
+						"- Applicable only for NUMERIC / EXPRESSION / MATRIX / MATRIX:EXPRESSION / SET questions\n" +
+						"- Notation: type or type:value\n" +
+						"- Types:\n" +
+						" - ABSOLUTE: maximum difference between answer and user input\n" +
+						"   * Example: ABSOLUTE:0.1\n" +
+						" - RELATIVE: maximum difference in percentage (symmetric mean absolute percentage error, SMAP value is used)\n" +
+						"   * Example: RELATIVE:5% or RELATIVE:0.05\n" +
+						" - QUOTIENT: integer multiple / QUOTIENT2: scalar multiple\n" +
+						"   * Example: QUOTIENT or QUOTIENT2:SYNCED\n" +
+						"Example:\n" +
+						"tolerance=ABSOLUTE:0.01"
+				},
+				datetime_precision: {
+					type: 'string',
+					description:
+						"Date/time precision.\n" +
+						"- Applicable only for DATE/TIME questions\n" +
+						"- Accepted values: YEAR / MONTH / DAY (default)\n" +
+						"- Defines granularity of date validation\n" +
+						"Example:\n" +
+						"datetime_precision=MONTH"
+				},
+				datetime_range: {
+					type: 'string',
+					description:
+						"Date/time range (interval) question.\n" +
+						"- Applicable only for DATE/TIME questions\n" +
+						"- Plus sign (+) to indicate YES, while blank field or minus sign (-) indicates NO (default)\n" +
+						"- Enables date range responses with the format {from}-{to}\n" +
+						"Example:\n" +
+						"datetime_range=+"
 				},
 			},
 			required: ['id', 'type', 'question', 'answer', 'ai'],
