@@ -108,6 +108,13 @@ export const EDUBASE_API_TOOLS_QUESTIONS = [
                         "answer=Paris\n" +
                         "answer=sin(x)^2+cos(x)^2"
                 },
+                language: {
+                    type: 'string',
+                    description: "The language of the question.\n" +
+                        "- Alpha-2 code according to ISO 639-1\n" +
+                        "Example:\n" +
+                        "language=hu  # Hungarian"
+                },
                 image: {
                     type: 'string',
                     description: "Attach an image to the question.\n" +
@@ -531,47 +538,96 @@ export const EDUBASE_API_TOOLS_QUESTIONS = [
                 },
                 expression_check: {
                     type: 'string',
-                    description: 'define how expressions should be validated (RANDOM, EXPLICIT, COMPARE) (default: RANDOM)'
+                    description: "Define how expressions should be validated (RANDOM, EXPLICIT, COMPARE) (default: RANDOM).\n" +
+                        "- RANDOM: Evaluates expressions at randomly generated points\n" +
+                        "- EXPLICIT: Checks expressions at predefined values against target values\n" +
+                        "- COMPARE: Direct comparison of expressions without variables\n" +
+                        "Example:\n" +
+                        "expression_check=RANDOM"
                 },
                 expression_variable: {
                     type: 'string',
-                    description: 'specifies variable names used in expressions (separate multiple variables with &&&) (default: x)'
+                    description: "Specifies variable names used in expressions (separate multiple variables with &&&) (default: x).\n" +
+                        "- Multiple variables can be used for multivariable expressions\n" +
+                        "- Variable names must be used consistently in answer and validation\n" +
+                        "Examples:\n" +
+                        "expression_variable=t &&& v  # For distance formula using time and velocity"
                 },
                 expression_decimals: {
                     type: 'string',
-                    description: 'sets precision for decimal calculations (default: 2)'
+                    description: "Sets precision for decimal calculations (default: 2).\n" +
+                        "- Inherited from decimals field if not specified\n" +
+                        "- Critical for controlling accurate validation of expressions\n" +
+                        "Example:\n" +
+                        "expression_decimals=4  # For high-precision calculations"
                 },
                 expression_functions: {
                     type: 'string',
-                    description: 'controls whether functions can be used in user inputs (+ for yes, - for no) (default: +)'
+                    description: "Controls whether functions can be used in user inputs (+ for yes, - for no) (default: +).\n" +
+                        "- Enabled by default with + sign\n" +
+                        "- Disable with - sign when students should use alternative forms\n" +
+                        "- Affects available input options for test takers\n" +
+                        "Example:\n" +
+                        "expression_functions=-  # Forces students to expand rather than use functions"
                 },
                 expression_random_type: {
                     type: 'string',
-                    description: 'type of generated test values (INTEGER, FLOAT)'
+                    description: "Type of generated test values (INTEGER, FLOAT).\n" +
+                        "- Specify per variable with &&&\n" +
+                        "- Only applicable when expression_check=RANDOM\n" +
+                        "Example:\n" +
+                        "expression_random_type=INTEGER &&& FLOAT  # For mixed type validation"
                 },
                 expression_random_tries: {
                     type: 'string',
-                    description: 'number of validation points (default: 5)'
+                    description: "Number of validation points (default: 5).\n" +
+                        "- Only applicable when expression_check=RANDOM\n" +
+                        "- Higher values increase validation reliability but impact performance\n" +
+                        "Example:\n" +
+                        "expression_random_tries=8"
                 },
                 expression_random_range: {
                     type: 'string',
-                    description: 'define value generation ranges (format: [min-max])'
+                    description: "Define value generation ranges (format: [min-max]).\n" +
+                        "- Specify per variable with &&&\n" +
+                        "- Only applicable when expression_check=RANDOM\n" +
+                        "Example:\n" +
+                        "expression_random_range=[8-16] &&& [4-6]  # Different ranges for different variables"
                 },
                 expression_random_inside: {
                     type: 'string',
-                    description: 'require values within specific intervals (format: [start-end])'
+                    description: "Require values within specific intervals (format: [start-end]).\n" +
+                        "- Multiple intervals: separate with ||| (OR relationship)\n" +
+                        "- Specify per variable with &&&\n" +
+                        "- Only applicable when expression_check=RANDOM\n" +
+                        "Example:\n" +
+                        "expression_random_inside=[4-8] ||| [12-16] &&& [2-3]"
                 },
                 expression_random_outside: {
                     type: 'string',
-                    description: 'exclude values from specific intervals (format: [start-end])'
+                    description: "Exclude values from specific intervals (format: [start-end]).\n" +
+                        "- Multiple intervals: separate with ||| (AND relationship)\n" +
+                        "- Specify per variable with &&&\n" +
+                        "- Only applicable when expression_check=RANDOM\n" +
+                        "Example:\n" +
+                        "expression_random_outside=[0-1] ||| [10-20] &&& [8-11]"
                 },
                 expression_explicit_goal: {
                     type: 'string',
-                    description: 'define exact value pairs (format: [x;f(x)])'
+                    description: "Define exact value pairs (format: [x;f(x)]).\n" +
+                        "- Format for multiple variables: [x;y;z;...;f(x,y,z,...)]\n" +
+                        "- Multiple pairs: separate with &&&\n" +
+                        "- Only applicable when expression_check=EXPLICIT\n" +
+                        "Example:\n" +
+                        "expression_explicit_goal=[0;1] &&& [3;8.89] &&& [9;16]"
                 },
                 expression_extended: {
                     type: 'string',
-                    description: 'enable additional mathematical functions (+ to enable, - to disable)'
+                    description: "Enable additional mathematical functions (+ to enable, - to disable).\n" +
+                        "- Activates support for custom base logarithms (e.g., log2(4))\n" +
+                        "- Enables factorial operations (e.g., 5!, 1!+2!+3!)\n" +
+                        "Example:\n" +
+                        "expression_extended=+"
                 },
                 attachment: {
                     type: 'string',
