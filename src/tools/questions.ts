@@ -27,7 +27,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 			properties: {
 				id: {
 					type: 'string',
-					description: 
+					description:
 						"External unique question identifier for question management.\n" +
 						"On repeated uploads, the questions are updated (rather then added) based on this value, which can be an arbitrary text.\n" +
 						"If the question already exists at upload time with the same external identifier (in the given folder or Quiz set), the existing question will be updated instead of being added as a new one.\n" +
@@ -431,7 +431,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 				},
 				solution_penalty: {
 					type: 'string',
-					description: 
+					description:
 						"Similar to HINT_PENALTY\n" +
 						"Point deduction for viewing steps of the solution (NONE, ONCE:N%) (default: NONE)"
 				},
@@ -444,7 +444,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 				},
 				video_penalty: {
 					type: 'string',
-					description: 
+					description:
 						"Similar to HINT_PENALTY\n" +
 						"Point deduction for video assistance used (NONE, ONCE:N%) (default: NONE)"
 				},
