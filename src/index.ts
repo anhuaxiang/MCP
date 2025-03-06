@@ -28,7 +28,7 @@ import { EDUBASE_API_TOOLS, EDUBASE_API_TOOLS_OUTPUT_SCHEMA } from "./tools.js";
 const server = new Server(
 	{
 		name: '@edubase/mcp',
-		version: '1.0.0',
+		version: '1.0.4',
 	},
 	{
 		capabilities: {
