@@ -567,8 +567,17 @@ export const EDUBASE_API_TOOLS_QUESTIONS = [
                         "- Enabled by default with + sign\n" +
                         "- Disable with - sign when students should use alternative forms\n" +
                         "- Affects available input options for test takers\n" +
+                        "- Supported functions include:\n" +
+                        "  * Basic: sqrt, abs, round, floor, ceil\n" +
+                        "  * Logarithmic: ln, log, log10\n" +
+                        "  * Trigonometric: sin, cos, tan, csc, sec, arcsin/asin, arccos/acos, arctan/atan\n" +
+                        "  * Hyperbolic: sinh, cosh, tanh, arcsinh/asinh, arccosh/acosh, arctanh/atanh\n" +
+                        "  * Conversions: degree2radian, radian2degree, number2binary, number2hexadecimal, roman2number, etc.\n" +
+                        "  * Two-parameter (use semicolon separator): min(a;b), max(a;b), mod(n;i), fmod(n;i), div(a;b), intdiv(a;b),\n" +
+                        "    gcd(a;b), lcm(a;b), number2base(n;b), base2number(n;b), combinations(n;k), combinations_repetition(n;k), variations(n;k), variations_repetition(n;k)\n" +
                         "Example:\n" +
-                        "expression_functions=-  # Forces students to expand rather than use functions"
+                        "expression_functions=-  # Forces students to expand rather than use functions.\n" +
+                        "# When asked for the value of sin(pi), the user can't input sin(pi) because functions cannot be used."
                 },
                 expression_random_type: {
                     type: 'string',
