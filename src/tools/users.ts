@@ -5,7 +5,7 @@ export const EDUBASE_API_TOOLS_USERS: Tool[] = [
 	// GET /user - Get/check user
 	{
 		name: 'edubase_get_user',
-		description: "Get/check user.",
+		description: "Get/check user. Can be used to retrieve the caller user's ID by using 'me' as the user identification string.",
 		inputSchema: {
 			type: 'object',
 			properties: {
@@ -23,7 +23,7 @@ export const EDUBASE_API_TOOLS_USERS: Tool[] = [
 	// POST /user - Create new user account
 	{
 		name: 'edubase_post_user',
-		description: "Create new user account.",
+		description: "Create new EduBase user account.",
 		inputSchema: {
 			type: 'object',
 			properties: {
