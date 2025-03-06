@@ -2,16 +2,42 @@ import { Tool } from "@modelcontextprotocol/sdk/types.js";
 
 /* Tool definitions */
 export const EDUBASE_API_TOOLS_USERS: Tool[] = [
+	// GET /users - List managed, non-generated users
+	{
+		name: 'edubase_get_users',
+		description: "List managed, non-generated users.",
+		inputSchema: {
+			type: 'object',
+			properties: {
+				search: {
+					type: 'string',
+					description: 'search string to filter results'
+				},
+				limit: {
+					type: 'number',
+					description: 'limit number of results (default, in search mode: 16)'
+				},
+				page: {
+					type: 'number',
+					description: 'page number (default: 1), not used in search mode!'
+				},
+			},
+			required: [],
+		},
+	},
+
 	// GET /user - Get/check user
 	{
 		name: 'edubase_get_user',
-		description: "Get/check user.",
+		description: "Get/check user. Can be used to retrieve the caller user's ID by using 'me' as the user identification string.",
 		inputSchema: {
 			type: 'object',
 			properties: {
 				user: {
 					type: 'string',
-					description: 'user identification string'
+					description:
+						"User identification string.\n" +
+						"- Use 'me' to get the current user."
 				},
 			},
 			required: ['user'],
@@ -21,7 +47,7 @@ export const EDUBASE_API_TOOLS_USERS: Tool[] = [
 	// POST /user - Create new user account
 	{
 		name: 'edubase_post_user',
-		description: "Create new user account.",
+		description: "Create new EduBase user account.",
 		inputSchema: {
 			type: 'object',
 			properties: {
@@ -329,6 +355,24 @@ export const EDUBASE_API_TOOLS_USERS: Tool[] = [
 
 /* Output schema definitions */
 export const EDUBASE_API_TOOLS_USERS_OUTPUT_SCHEMA: object = {
+	// GET /users - List managed, non-generated users
+	edubase_get_users: {
+		type: 'array',
+		items: {
+			type: 'object',
+			properties: {
+				user: {
+					type: 'string',
+					description: 'user identification string'
+				},
+				name: {
+					type: 'string',
+					description: 'full name of the user'
+				},
+			},
+		},
+	},
+
 	// GET /user - Get/check user
 	edubase_get_user: {
 		type: 'object',
@@ -347,7 +391,7 @@ export const EDUBASE_API_TOOLS_USERS_OUTPUT_SCHEMA: object = {
 			},
 			exam: {
 				type: 'boolean',
-				description: 'exam account'
+				description: 'exam (generated) account'
 			},
 		},
 	},
@@ -370,6 +414,9 @@ export const EDUBASE_API_TOOLS_USERS_OUTPUT_SCHEMA: object = {
 			},
 		},
 	},
+
+	// DELETE /user - Delete user
+	edubase_delete_user:{},
 
 	// GET /user:name - Get user's name
 	edubase_get_user_name: {
@@ -493,6 +540,9 @@ export const EDUBASE_API_TOOLS_USERS_OUTPUT_SCHEMA: object = {
 		},
 	},
 
+	// DELETE /user:login - Delete a previously generated login link
+	edubase_delete_user_login:{},
+
 	// GET /user:search - Lookup user by email, username or code
 	edubase_get_user_search: {
 		type: 'object',
@@ -503,7 +553,7 @@ export const EDUBASE_API_TOOLS_USERS_OUTPUT_SCHEMA: object = {
 			},
 			exam: {
 				type: 'boolean',
-				description: 'exam account'
+				description: 'exam (generated) account'
 			},
 		},
 	},
@@ -526,4 +576,7 @@ export const EDUBASE_API_TOOLS_USERS_OUTPUT_SCHEMA: object = {
 			},
 		},
 	},
+
+	// DELETE /user:assume - Revoke assume token
+	edubase_delete_user_assume:{},
 };

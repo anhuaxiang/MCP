@@ -1,5 +1,4 @@
 /* Tool definitions */
-/* Tool definitions */
 export const EDUBASE_API_TOOLS_PERMISSIONS = [
     // GET /class:permission - Check if a user has permission on a class
     {
@@ -759,32 +758,7 @@ export const EDUBASE_API_TOOLS_PERMISSIONS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /class:permission - Remove a user permission
-    edubase_delete_class_permission: {
-        type: 'object',
-        properties: {
-            user: {
-                type: 'string',
-                description: 'the user identification string'
-            },
-            content: {
-                type: 'object',
-                properties: {
-                    type: {
-                        type: 'string',
-                        description: 'will be "class"'
-                    },
-                    code: {
-                        type: 'string',
-                        description: 'the class identification string'
-                    },
-                },
-            },
-            success: {
-                type: 'boolean',
-                description: 'operation was successful'
-            },
-        },
-    },
+    edubase_delete_class_permission: {},
     // GET /course:permission - Check if a user has permission on a course
     edubase_get_course_permission: {
         type: 'object',
@@ -849,32 +823,7 @@ export const EDUBASE_API_TOOLS_PERMISSIONS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /course:permission - Remove a user permission
-    edubase_delete_course_permission: {
-        type: 'object',
-        properties: {
-            user: {
-                type: 'string',
-                description: 'the user identification string'
-            },
-            content: {
-                type: 'object',
-                properties: {
-                    type: {
-                        type: 'string',
-                        description: 'will be "course"'
-                    },
-                    code: {
-                        type: 'string',
-                        description: 'the course identification string'
-                    },
-                },
-            },
-            success: {
-                type: 'boolean',
-                description: 'operation was successful'
-            },
-        },
-    },
+    edubase_delete_course_permission: {},
     // GET /event:permission - Check if a user has permission on an event
     edubase_get_event_permission: {
         type: 'object',
@@ -939,32 +888,7 @@ export const EDUBASE_API_TOOLS_PERMISSIONS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /event:permission - Remove a user permission
-    edubase_delete_event_permission: {
-        type: 'object',
-        properties: {
-            user: {
-                type: 'string',
-                description: 'the user identification string'
-            },
-            content: {
-                type: 'object',
-                properties: {
-                    type: {
-                        type: 'string',
-                        description: 'will be "event"'
-                    },
-                    code: {
-                        type: 'string',
-                        description: 'the event identification string'
-                    },
-                },
-            },
-            success: {
-                type: 'boolean',
-                description: 'operation was successful'
-            },
-        },
-    },
+    edubase_delete_event_permission: {},
     // GET /exam:permission - Check if a user has permission on an exam
     edubase_get_exam_permission: {
         type: 'object',
@@ -1029,32 +953,7 @@ export const EDUBASE_API_TOOLS_PERMISSIONS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /exam:permission - Remove a user permission
-    edubase_delete_exam_permission: {
-        type: 'object',
-        properties: {
-            user: {
-                type: 'string',
-                description: 'the user identification string'
-            },
-            content: {
-                type: 'object',
-                properties: {
-                    type: {
-                        type: 'string',
-                        description: 'will be "exam"'
-                    },
-                    code: {
-                        type: 'string',
-                        description: 'the exam identification string'
-                    },
-                },
-            },
-            success: {
-                type: 'boolean',
-                description: 'operation was successful'
-            },
-        },
-    },
+    edubase_delete_exam_permission: {},
     // GET /integration:permission - Check if a user has permission on an integration
     edubase_get_integration_permission: {
         type: 'object',
@@ -1119,32 +1018,7 @@ export const EDUBASE_API_TOOLS_PERMISSIONS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /integration:permission - Remove a user permission
-    edubase_delete_integration_permission: {
-        type: 'object',
-        properties: {
-            user: {
-                type: 'string',
-                description: 'the user identification string'
-            },
-            content: {
-                type: 'object',
-                properties: {
-                    type: {
-                        type: 'string',
-                        description: 'will be "integration"'
-                    },
-                    code: {
-                        type: 'string',
-                        description: 'the integration identification string'
-                    },
-                },
-            },
-            success: {
-                type: 'boolean',
-                description: 'operation was successful'
-            },
-        },
-    },
+    edubase_delete_integration_permission: {},
     // GET /organization:permission - Check if a user has permission on an organization
     edubase_get_organization_permission: {
         type: 'object',
@@ -1209,32 +1083,7 @@ export const EDUBASE_API_TOOLS_PERMISSIONS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /organization:permission - Remove a user permission
-    edubase_delete_organization_permission: {
-        type: 'object',
-        properties: {
-            user: {
-                type: 'string',
-                description: 'the user identification string'
-            },
-            content: {
-                type: 'object',
-                properties: {
-                    type: {
-                        type: 'string',
-                        description: 'will be "organization"'
-                    },
-                    code: {
-                        type: 'string',
-                        description: 'the organization identification string'
-                    },
-                },
-            },
-            success: {
-                type: 'boolean',
-                description: 'operation was successful'
-            },
-        },
-    },
+    edubase_delete_organization_permission: {},
     // GET /quiz:permission - Check if a user has permission on a quiz
     edubase_get_quiz_permission: {
         type: 'object',
@@ -1299,32 +1148,7 @@ export const EDUBASE_API_TOOLS_PERMISSIONS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /quiz:permission - Remove a user permission
-    edubase_delete_quiz_permission: {
-        type: 'object',
-        properties: {
-            user: {
-                type: 'string',
-                description: 'the user identification string'
-            },
-            content: {
-                type: 'object',
-                properties: {
-                    type: {
-                        type: 'string',
-                        description: 'will be "quiz"'
-                    },
-                    code: {
-                        type: 'string',
-                        description: 'the quiz identification string'
-                    },
-                },
-            },
-            success: {
-                type: 'boolean',
-                description: 'operation was successful'
-            },
-        },
-    },
+    edubase_delete_quiz_permission: {},
     // GET /scorm:permission - Check if a user has permission on a SCORM learning material
     edubase_get_scorm_permission: {
         type: 'object',
@@ -1389,32 +1213,7 @@ export const EDUBASE_API_TOOLS_PERMISSIONS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /scorm:permission - Remove a user permission
-    edubase_delete_scorm_permission: {
-        type: 'object',
-        properties: {
-            user: {
-                type: 'string',
-                description: 'the user identification string'
-            },
-            content: {
-                type: 'object',
-                properties: {
-                    type: {
-                        type: 'string',
-                        description: 'will be "scorm"'
-                    },
-                    code: {
-                        type: 'string',
-                        description: 'the SCORM identification string'
-                    },
-                },
-            },
-            success: {
-                type: 'boolean',
-                description: 'operation was successful'
-            },
-        },
-    },
+    edubase_delete_scorm_permission: {},
     // GET /tag:permission - Check if a user has permission on a tag
     edubase_get_tag_permission: {
         type: 'object',
@@ -1479,32 +1278,7 @@ export const EDUBASE_API_TOOLS_PERMISSIONS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /tag:permission - Remove a user permission
-    edubase_delete_tag_permission: {
-        type: 'object',
-        properties: {
-            user: {
-                type: 'string',
-                description: 'the user identification string'
-            },
-            content: {
-                type: 'object',
-                properties: {
-                    type: {
-                        type: 'string',
-                        description: 'will be "tag"'
-                    },
-                    code: {
-                        type: 'string',
-                        description: 'the tag identification string'
-                    },
-                },
-            },
-            success: {
-                type: 'boolean',
-                description: 'operation was successful'
-            },
-        },
-    },
+    edubase_delete_tag_permission: {},
     // GET /video:permission - Check if a user has permission on a video
     edubase_get_video_permission: {
         type: 'object',
@@ -1569,30 +1343,5 @@ export const EDUBASE_API_TOOLS_PERMISSIONS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /video:permission - Remove a user permission
-    edubase_delete_video_permission: {
-        type: 'object',
-        properties: {
-            user: {
-                type: 'string',
-                description: 'the user identification string'
-            },
-            content: {
-                type: 'object',
-                properties: {
-                    type: {
-                        type: 'string',
-                        description: 'will be "video"'
-                    },
-                    code: {
-                        type: 'string',
-                        description: 'the video identification string'
-                    },
-                },
-            },
-            success: {
-                type: 'boolean',
-                description: 'operation was successful'
-            },
-        },
-    },
+    edubase_delete_video_permission: {},
 };

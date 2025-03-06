@@ -6,7 +6,20 @@ export const EDUBASE_API_TOOLS_ORGANIZATIONS = [
         description: "List owned and managed organizations.",
         inputSchema: {
             type: 'object',
-            properties: {},
+            properties: {
+                search: {
+                    type: 'string',
+                    description: 'search string to filter results'
+                },
+                limit: {
+                    type: 'number',
+                    description: 'limit number of results (default, in search mode: 16)'
+                },
+                page: {
+                    type: 'number',
+                    description: 'page number (default: 1), not used in search mode!'
+                },
+            },
             required: [],
         },
     },
@@ -203,23 +216,17 @@ export const EDUBASE_API_TOOLS_ORGANIZATIONS = [
 export const EDUBASE_API_TOOLS_ORGANIZATIONS_OUTPUT_SCHEMA = {
     // GET /organizations - List owned and managed organizations
     edubase_get_organizations: {
-        type: 'object',
-        properties: {
-            organizations: {
-                type: 'array',
-                description: 'list of organizations',
-                items: {
-                    type: 'object',
-                    properties: {
-                        code: {
-                            type: 'string',
-                            description: 'organization identification string'
-                        },
-                        name: {
-                            type: 'string',
-                            description: 'title of the organization'
-                        },
-                    },
+        type: 'array',
+        items: {
+            type: 'object',
+            properties: {
+                code: {
+                    type: 'string',
+                    description: 'organization identification string'
+                },
+                name: {
+                    type: 'string',
+                    description: 'title of the organization'
                 },
             },
         },
@@ -240,39 +247,32 @@ export const EDUBASE_API_TOOLS_ORGANIZATIONS_OUTPUT_SCHEMA = {
     },
     // GET /organization:members - List all members in an organization
     edubase_get_organization_members: {
-        type: 'object',
-        properties: {
-            members: {
-                type: 'array',
-                description: 'list of members',
-                items: {
-                    type: 'object',
-                    properties: {
-                        code: {
+        type: 'array',
+        items: {
+            type: 'object',
+            properties: {
+                code: {
+                    type: 'string',
+                    description: 'user identification string'
+                },
+                name: {
+                    type: 'string',
+                    description: 'name of the member'
+                },
+                department: {
+                    type: 'string',
+                    description: 'name of the department (if member)'
+                },
+                permission: {
+                    type: 'array',
+                    items: {
+                        organization: {
                             type: 'string',
-                            description: 'user identification string'
+                            description: 'permission level to organization'
                         },
-                        name: {
+                        content: {
                             type: 'string',
-                            description: 'name of the member'
-                        },
-                        department: {
-                            type: 'string',
-                            description: 'name of the department (if member)'
-                        },
-                        permission: {
-                            type: 'object',
-                            description: 'permission levels',
-                            properties: {
-                                organization: {
-                                    type: 'string',
-                                    description: 'permission level to organization'
-                                },
-                                content: {
-                                    type: 'string',
-                                    description: 'permission level to contents in organization'
-                                },
-                            },
+                            description: 'permission level to contents in organization'
                         },
                     },
                 },
@@ -280,109 +280,45 @@ export const EDUBASE_API_TOOLS_ORGANIZATIONS_OUTPUT_SCHEMA = {
         },
     },
     // POST /organization:members - Assign user(s) to an organization
-    edubase_post_organization_members: {
-        type: 'object',
-        properties: {
-            organization: {
-                type: 'string',
-                description: 'organization identification string'
-            },
-            status: {
-                type: 'boolean',
-                description: 'operation successful'
-            },
-            message: {
-                type: 'string',
-                description: 'status message'
-            },
-            count: {
-                type: 'number',
-                description: 'number of users added or updated'
-            },
-        },
-    },
+    edubase_post_organization_members: {},
     // DELETE /organization:members - Remove user(s) from an organization
-    edubase_delete_organization_members: {
-        type: 'object',
-        properties: {
-            organization: {
-                type: 'string',
-                description: 'organization identification string'
-            },
-            status: {
-                type: 'boolean',
-                description: 'operation successful'
-            },
-            message: {
-                type: 'string',
-                description: 'status message'
-            },
-            count: {
-                type: 'number',
-                description: 'number of users removed'
-            },
-        },
-    },
+    edubase_delete_organization_members: {},
     // POST /organizations:members - Assign user(s) to organization(s)
-    edubase_post_organizations_members: {
-        type: 'object',
-        properties: {
-            status: {
-                type: 'boolean',
-                description: 'operation successful'
-            },
-            message: {
-                type: 'string',
-                description: 'status message'
-            },
-            count: {
-                type: 'number',
-                description: 'number of users added or updated across all organizations'
-            },
-        },
-    },
+    edubase_post_organizations_members: {},
     // GET /user:organizations - List all organizations a user is member of
     edubase_get_user_organizations: {
-        type: 'object',
-        properties: {
-            user: {
-                type: 'string',
-                description: 'user identification string'
-            },
-            organizations: {
-                type: 'array',
-                description: 'list of organizations',
-                items: {
-                    type: 'object',
-                    properties: {
-                        code: {
-                            type: 'string',
-                            description: 'organization identification string'
-                        },
-                        name: {
-                            type: 'string',
-                            description: 'title of the organization'
-                        },
-                        link: {
-                            type: 'string',
-                            description: 'link to the organization manager page'
-                        },
-                        department: {
-                            type: 'string',
-                            description: 'name of the department (if member)'
-                        },
-                        permission: {
-                            type: 'object',
-                            description: 'permission levels',
-                            properties: {
-                                organization: {
-                                    type: 'string',
-                                    description: 'permission level to organization'
-                                },
-                                content: {
-                                    type: 'string',
-                                    description: 'permission level to contents in organization'
-                                },
+        type: 'array',
+        items: {
+            type: 'object',
+            properties: {
+                code: {
+                    type: 'string',
+                    description: 'organization identification string'
+                },
+                name: {
+                    type: 'string',
+                    description: 'title of the organization'
+                },
+                link: {
+                    type: 'string',
+                    description: 'link to the organization manager page'
+                },
+                department: {
+                    type: 'string',
+                    description: 'name of the department (if member)'
+                },
+                permission: {
+                    type: 'array',
+                    items: {
+                        type: 'object',
+                        properties: {
+                            organization: {
+                                type: 'string',
+                                description: 'permission level to organization'
+                            },
+                            content: {
+                                type: 'string',
+                                description: 'permission level to contents in organization'
                             },
                         },
                     },
@@ -391,47 +327,7 @@ export const EDUBASE_API_TOOLS_ORGANIZATIONS_OUTPUT_SCHEMA = {
         },
     },
     // POST /user:organizations - Assign user to organization(s)
-    edubase_post_user_organizations: {
-        type: 'object',
-        properties: {
-            user: {
-                type: 'string',
-                description: 'user identification string'
-            },
-            status: {
-                type: 'boolean',
-                description: 'operation successful'
-            },
-            message: {
-                type: 'string',
-                description: 'status message'
-            },
-            count: {
-                type: 'number',
-                description: 'number of organizations the user was added to or updated in'
-            },
-        },
-    },
+    edubase_post_user_organizations: {},
     // DELETE /user:organizations - Remove user from organization(s)
-    edubase_delete_user_organizations: {
-        type: 'object',
-        properties: {
-            user: {
-                type: 'string',
-                description: 'user identification string'
-            },
-            status: {
-                type: 'boolean',
-                description: 'operation successful'
-            },
-            message: {
-                type: 'string',
-                description: 'status message'
-            },
-            count: {
-                type: 'number',
-                description: 'number of organizations the user was removed from'
-            },
-        },
-    },
+    edubase_delete_user_organizations: {},
 };

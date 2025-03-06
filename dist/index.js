@@ -24,7 +24,7 @@ import { EDUBASE_API_TOOLS, EDUBASE_API_TOOLS_OUTPUT_SCHEMA } from "./tools.js";
 /* Create MCP server */
 const server = new Server({
     name: '@edubase/mcp',
-    version: '1.0.0',
+    version: '1.0.7',
 }, {
     capabilities: {
         tools: {},
@@ -100,7 +100,15 @@ async function sendEduBaseApiRequest(method, endpoint, data) {
         throw new Error(`EduBase API error: ${response.status} ${response.statusText}` + (response.headers.has('EduBase-API-Error') ? ` (${response.headers.get('EduBase-API-Error')})` : ''));
     }
     /* Parse response and return as object */
-    return await response.json();
+    let clonedResponse = response.clone();
+    try {
+        /* First try to decode as JSON */
+        return await response.json();
+    }
+    catch (error) {
+        /* Response might be empty string with a 200 status code */
+        return await clonedResponse.text();
+    }
 }
 /* Configure request handlers */
 server.setRequestHandler(ListToolsRequestSchema, async () => ({
@@ -121,10 +129,24 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         const response = await sendEduBaseApiRequest(method, '/' + endpoint.join(':'), args);
         /* Return response */
         const outputSchemaKey = name;
-        return {
-            content: [{ type: 'text', text: "Response: " + JSON.stringify(response) + "\nResponse schema: " + JSON.stringify(EDUBASE_API_TOOLS_OUTPUT_SCHEMA[outputSchemaKey]) }],
-            isError: false,
-        };
+        if (typeof EDUBASE_API_TOOLS_OUTPUT_SCHEMA[outputSchemaKey] == 'object' && Object.keys(EDUBASE_API_TOOLS_OUTPUT_SCHEMA[outputSchemaKey]).length == 0 && typeof response == 'string' && response.length == 0) {
+            /* Endpoint without response */
+            return {
+                content: [{ type: 'text', text: 'Success.' }],
+                isError: false,
+            };
+        }
+        else if (typeof response != 'object') {
+            /* Response should be an object at this point */
+            throw new Error('Invalid response');
+        }
+        else {
+            /* Return response with optional schema */
+            return {
+                content: [{ type: 'text', text: "Response: " + JSON.stringify(response) + (Object.keys(EDUBASE_API_TOOLS_OUTPUT_SCHEMA[outputSchemaKey]).length > 0 ? "\nResponse schema: " + JSON.stringify(EDUBASE_API_TOOLS_OUTPUT_SCHEMA[outputSchemaKey]) : '') }],
+                isError: false,
+            };
+        }
     }
     catch (error) {
         /* Request failed */

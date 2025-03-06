@@ -6,7 +6,20 @@ export const EDUBASE_API_TOOLS_TAGS = [
         description: "List owned and managed tags.",
         inputSchema: {
             type: 'object',
-            properties: {},
+            properties: {
+                search: {
+                    type: 'string',
+                    description: 'search string to filter results'
+                },
+                limit: {
+                    type: 'number',
+                    description: 'limit number of results (default, in search mode: 16)'
+                },
+                page: {
+                    type: 'number',
+                    description: 'page number (default: 1), not used in search mode!'
+                },
+            },
             required: [],
         },
     },
@@ -788,32 +801,7 @@ export const EDUBASE_API_TOOLS_TAGS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /class:tag - Remove a tag attachment from class
-    edubase_delete_class_tag: {
-        type: 'object',
-        properties: {
-            tag: {
-                type: 'string',
-                description: 'the tag identification string'
-            },
-            content: {
-                type: 'object',
-                properties: {
-                    type: {
-                        type: 'string',
-                        description: 'will be "class"'
-                    },
-                    code: {
-                        type: 'string',
-                        description: 'the class identification string'
-                    },
-                },
-            },
-            success: {
-                type: 'boolean',
-                description: 'operation was successful'
-            },
-        },
-    },
+    edubase_delete_class_tag: {},
     // GET /course:tags - List all attached tags of a course
     edubase_get_course_tags: {
         type: 'array',
@@ -886,32 +874,7 @@ export const EDUBASE_API_TOOLS_TAGS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /course:tag - Remove a tag attachment from course
-    edubase_delete_course_tag: {
-        type: 'object',
-        properties: {
-            tag: {
-                type: 'string',
-                description: 'the tag identification string'
-            },
-            content: {
-                type: 'object',
-                properties: {
-                    type: {
-                        type: 'string',
-                        description: 'will be "course"'
-                    },
-                    code: {
-                        type: 'string',
-                        description: 'the course identification string'
-                    },
-                },
-            },
-            success: {
-                type: 'boolean',
-                description: 'operation was successful'
-            },
-        },
-    },
+    edubase_delete_course_tag: {},
     // GET /event:tags - List all attached tags of an event
     edubase_get_event_tags: {
         type: 'array',
@@ -984,32 +947,7 @@ export const EDUBASE_API_TOOLS_TAGS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /event:tag - Remove a tag attachment from event
-    edubase_delete_event_tag: {
-        type: 'object',
-        properties: {
-            tag: {
-                type: 'string',
-                description: 'the tag identification string'
-            },
-            content: {
-                type: 'object',
-                properties: {
-                    type: {
-                        type: 'string',
-                        description: 'will be "event"'
-                    },
-                    code: {
-                        type: 'string',
-                        description: 'the event identification string'
-                    },
-                },
-            },
-            success: {
-                type: 'boolean',
-                description: 'operation was successful'
-            },
-        },
-    },
+    edubase_delete_event_tag: {},
     // GET /exam:tags - List all attached tags of an exam
     edubase_get_exam_tags: {
         type: 'array',
@@ -1082,32 +1020,7 @@ export const EDUBASE_API_TOOLS_TAGS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /exam:tag - Remove a tag attachment from exam
-    edubase_delete_exam_tag: {
-        type: 'object',
-        properties: {
-            tag: {
-                type: 'string',
-                description: 'the tag identification string'
-            },
-            content: {
-                type: 'object',
-                properties: {
-                    type: {
-                        type: 'string',
-                        description: 'will be "exam"'
-                    },
-                    code: {
-                        type: 'string',
-                        description: 'the exam identification string'
-                    },
-                },
-            },
-            success: {
-                type: 'boolean',
-                description: 'operation was successful'
-            },
-        },
-    },
+    edubase_delete_exam_tag: {},
     // GET /integration:tags - List all attached tags of an integration
     edubase_get_integration_tags: {
         type: 'array',
@@ -1180,32 +1093,7 @@ export const EDUBASE_API_TOOLS_TAGS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /integration:tag - Remove a tag attachment from integration
-    edubase_delete_integration_tag: {
-        type: 'object',
-        properties: {
-            tag: {
-                type: 'string',
-                description: 'the tag identification string'
-            },
-            content: {
-                type: 'object',
-                properties: {
-                    type: {
-                        type: 'string',
-                        description: 'will be "integration"'
-                    },
-                    code: {
-                        type: 'string',
-                        description: 'the integration identification string'
-                    },
-                },
-            },
-            success: {
-                type: 'boolean',
-                description: 'operation was successful'
-            },
-        },
-    },
+    edubase_delete_integration_tag: {},
     // GET /organization:tags - List all attached tags of an organization
     edubase_get_organization_tags: {
         type: 'array',
@@ -1278,32 +1166,7 @@ export const EDUBASE_API_TOOLS_TAGS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /organization:tag - Remove a tag attachment from organization
-    edubase_delete_organization_tag: {
-        type: 'object',
-        properties: {
-            tag: {
-                type: 'string',
-                description: 'the tag identification string'
-            },
-            content: {
-                type: 'object',
-                properties: {
-                    type: {
-                        type: 'string',
-                        description: 'will be "organization"'
-                    },
-                    code: {
-                        type: 'string',
-                        description: 'the organization identification string'
-                    },
-                },
-            },
-            success: {
-                type: 'boolean',
-                description: 'operation was successful'
-            },
-        },
-    },
+    edubase_delete_organization_tag: {},
     // GET /quiz:tags - List all attached tags of a Quiz
     edubase_get_quiz_tags: {
         type: 'array',
@@ -1376,32 +1239,7 @@ export const EDUBASE_API_TOOLS_TAGS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /quiz:tag - Remove a tag attachment from Quiz
-    edubase_delete_quiz_tag: {
-        type: 'object',
-        properties: {
-            tag: {
-                type: 'string',
-                description: 'the tag identification string'
-            },
-            content: {
-                type: 'object',
-                properties: {
-                    type: {
-                        type: 'string',
-                        description: 'will be "quiz"'
-                    },
-                    code: {
-                        type: 'string',
-                        description: 'the quiz identification string'
-                    },
-                },
-            },
-            success: {
-                type: 'boolean',
-                description: 'operation was successful'
-            },
-        },
-    },
+    edubase_delete_quiz_tag: {},
     // GET /scorm:tags - List all attached tags of a SCORM learning material
     edubase_get_scorm_tags: {
         type: 'array',
@@ -1474,32 +1312,7 @@ export const EDUBASE_API_TOOLS_TAGS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /scorm:tag - Remove a tag attachment from SCORM learning material
-    edubase_delete_scorm_tag: {
-        type: 'object',
-        properties: {
-            tag: {
-                type: 'string',
-                description: 'the tag identification string'
-            },
-            content: {
-                type: 'object',
-                properties: {
-                    type: {
-                        type: 'string',
-                        description: 'will be "scorm"'
-                    },
-                    code: {
-                        type: 'string',
-                        description: 'the SCORM identification string'
-                    },
-                },
-            },
-            success: {
-                type: 'boolean',
-                description: 'operation was successful'
-            },
-        },
-    },
+    edubase_delete_scorm_tag: {},
     // GET /video:tags - List all attached tags of a video
     edubase_get_video_tags: {
         type: 'array',
@@ -1572,30 +1385,5 @@ export const EDUBASE_API_TOOLS_TAGS_OUTPUT_SCHEMA = {
         },
     },
     // DELETE /video:tag - Remove a tag attachment from video
-    edubase_delete_video_tag: {
-        type: 'object',
-        properties: {
-            tag: {
-                type: 'string',
-                description: 'the tag identification string'
-            },
-            content: {
-                type: 'object',
-                properties: {
-                    type: {
-                        type: 'string',
-                        description: 'will be "video"'
-                    },
-                    code: {
-                        type: 'string',
-                        description: 'the video identification string'
-                    },
-                },
-            },
-            success: {
-                type: 'boolean',
-                description: 'operation was successful'
-            },
-        },
-    },
+    edubase_delete_video_tag: {},
 };
