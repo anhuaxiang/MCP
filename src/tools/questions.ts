@@ -117,7 +117,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 				},
 				language: {
 					type: 'string',
-					description: 
+					description:
 						"The language of the question.\n" +
 						"- Alpha-2 code according to ISO 639-1\n" +
 						"Example:\n" +
@@ -571,7 +571,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 				},
 				expression_check: {
 					type: 'string',
-					description: 
+					description:
 						"Define how expressions should be validated (RANDOM, EXPLICIT, COMPARE) (default: RANDOM).\n" +
 						"- RANDOM: Evaluates expressions at randomly generated points\n" +
 						"- EXPLICIT: Checks expressions at predefined values against target values\n" +
@@ -581,7 +581,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 				},
 				expression_variable: {
 					type: 'string',
-					description: 
+					description:
 						"Specifies variable names used in expressions (separate multiple variables with &&&) (default: x).\n" +
 						"- Multiple variables can be used for multivariable expressions\n" +
 						"- Variable names must be used consistently in answer and validation\n" +
@@ -590,7 +590,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 				},
 				expression_decimals: {
 					type: 'string',
-					description: 
+					description:
 						"Sets precision for decimal calculations (default: 2).\n" +
 						"- Inherited from decimals field if not specified\n" +
 						"- Critical for controlling accurate validation of expressions\n" +
@@ -599,7 +599,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 				},
 				expression_functions: {
 					type: 'string',
-					description: 
+					description:
 						"Controls whether functions can be used in user inputs (+ for yes, - for no) (default: +).\n" +
 						"- Enabled by default with + sign\n" +
 						"- Disable with - sign when students should use alternative forms\n" +
@@ -610,7 +610,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 				},
 				expression_random_type: {
 					type: 'string',
-					description: 
+					description:
 						"Type of generated test values (INTEGER, FLOAT).\n" +
 						"- Specify per variable with &&&\n" +
 						"- Only applicable when expression_check=RANDOM\n" +
@@ -619,7 +619,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 				},
 				expression_random_tries: {
 					type: 'string',
-					description: 
+					description:
 						"Number of validation points (default: 5).\n" +
 						"- Only applicable when expression_check=RANDOM\n" +
 						"- Higher values increase validation reliability but impact performance\n" +
@@ -628,7 +628,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 				},
 				expression_random_range: {
 					type: 'string',
-					description: 
+					description:
 						"Define value generation ranges (format: [min-max]).\n" +
 						"- Specify per variable with &&&\n" +
 						"- Only applicable when expression_check=RANDOM\n" +
@@ -637,7 +637,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 				},
 				expression_random_inside: {
 					type: 'string',
-					description: 
+					description:
 						"Require values within specific intervals (format: [start-end]).\n" +
 						"- Multiple intervals: separate with ||| (OR relationship)\n" +
 						"- Specify per variable with &&&\n" +
@@ -647,7 +647,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 				},
 				expression_random_outside: {
 					type: 'string',
-					description: 
+					description:
 						"Exclude values from specific intervals (format: [start-end]).\n" +
 						"- Multiple intervals: separate with ||| (AND relationship)\n" +
 						"- Specify per variable with &&&\n" +
@@ -657,7 +657,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 				},
 				expression_explicit_goal: {
 					type: 'string',
-					description: 
+					description:
 						"Define exact value pairs (format: [x;f(x)]).\n" +
 						"- Format for multiple variables: [x;y;z;...;f(x,y,z,...)]\n" +
 						"- Multiple pairs: separate with &&&\n" +
@@ -667,7 +667,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 				},
 				expression_extended: {
 					type: 'string',
-					description: 
+					description:
 						"Enable additional mathematical functions (+ to enable, - to disable).\n" +
 						"- Activates support for custom base logarithms (e.g., log2(4))\n" +
 						"- Enables factorial operations (e.g., 5!, 1!+2!+3!)\n" +
