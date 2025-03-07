@@ -864,7 +864,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 						"- Format: minimum-maximum, but you can specify only a minimum or maximum as well\n" +
 						"- Integer(s) between 0-4000\n" +
 						"Example:\n" +
-						"freetext_characters=100-1000\n" + 
+						"freetext_characters=100-1000\n" +
 						"freetext_characters=10- # Minimum 10 characters"
 				},
 				freetext_words: {
