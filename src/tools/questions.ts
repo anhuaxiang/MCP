@@ -620,7 +620,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 						"  * Trigonometric: sin, cos, tan, csc, sec, arcsin/asin, arccos/acos, arctan/atan\n" +
 						"  * Hyperbolic: sinh, cosh, tanh, arcsinh/asinh, arccosh/acosh, arctanh/atanh\n" +
 						"  * Conversions: degree2radian, radian2degree, number2binary, number2hexadecimal, roman2number, etc.\n" +
-						"  * Two-parameter (use semicolon separator): min(a;b), max(a;b), mod(n;i), fmod(n;i), div(a;b), intdiv(a;b),\n" + 
+						"  * Two-parameter (use semicolon separator): min(a;b), max(a;b), mod(n;i), fmod(n;i), div(a;b), intdiv(a;b),\n" +
 						"    gcd(a;b), lcm(a;b), number2base(n;b), base2number(n;b), combinations(n;k), combinations_repetition(n;k), variations(n;k), variations_repetition(n;k)\n" +
 						"Example:\n" +
 						"expression_functions=-  # Forces students to expand rather than use functions.\n" +
