@@ -74,6 +74,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS = [
                         "- LaTeX Support (requires QUESTION_FORMAT=LATEX):\n" +
                         " - Inline: $$...$$\n" +
                         " - Block: $$$$...$$$$\n" +
+                        " - The inline or block method must be used, because $...$ won't work!\n" +
                         "- Parameters: Use curly braces {parameter_name} (defined in PARAMETERS field)\n" +
                         "- Quick expressions: Use ~~~expression~~~ for simple parameter calculations, e.g., area of a circle is ~~~{r}*{r}*pi~~~\n" +
                         "- Style formatting with EduTags:\n" +
@@ -105,6 +106,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS = [
                         "- LaTeX Support (requires QUESTION_FORMAT=LATEX):\n" +
                         " - Inline: $$...$$\n" +
                         " - Block: $$$$...$$$$\n" +
+                        " - The inline or block method must be used, because $...$ won't work!\n" +
                         "- Usage by question type:\n" +
                         " - CHOICE: The correct option\n" +
                         " - MULTIPLE-CHOICE: All correct options\n" +
@@ -260,6 +262,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS = [
                         "- LaTeX Support (requires QUESTION_FORMAT=LATEX):\n" +
                         " - Inline: $$...$$\n" +
                         " - Block: $$$$...$$$$\n" +
+                        " - The inline or block method must be used, because $...$ won't work!\n" +
                         "Example:\n" +
                         "options=London &&& Berlin &&& Madrid\n" +
                         "Example API call:\n" +
@@ -692,7 +695,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS = [
                         "- Explanation of the correctness of the answer or the incorrectness of the options\n" +
                         "- Helps learners understand their mistakes\n" +
                         "- Parameters can be used in explanations\n" +
-                        "- LaTeX is not supported here!\n" +
+                        "- LaTeX is not supported here, so we must not use it!\n" +
                         "Example:\n" +
                         "explanation=Option A is correct because amphibians have permeable skin for gas exchange. Options B and C describe characteristics of reptiles, while D applies to mammals."
                 },
