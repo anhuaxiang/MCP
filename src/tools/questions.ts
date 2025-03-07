@@ -94,6 +94,16 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 						"Example:\n" +
 						"question=Calculate the area of a circle with radius {r} using $$A = \\pi r^2$$"
 				},
+				question_format: {
+					type: 'string',
+					description:
+						"Controls question text rendering.\n" +
+						"- NORMAL: Default text formatting with standard font size, recommended for most tasks\n" +
+						"- LATEX: Enables LaTeX for mathematical, scientific notations (using KaTeX)\n" +
+						"- LONG: Smaller font with automatic paragraph breaks (ideal for lengthy text)\n" +
+						"Example:\n" +
+						"question_format=LATEX"
+				},
 				answer: {
 					type: 'string',
 					description:
@@ -816,6 +826,121 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 						"- Enables date range responses with the format {from}-{to}\n" +
 						"Example:\n" +
 						"datetime_range=+"
+				},
+				numerical_range: {
+					type: 'string',
+					description:
+						"Number range (interval) question.\n" +
+						"- Only applicable for NUMERIC questions\n" +
+						"- Plus sign (+) to indicate YES, while blank field or minus sign (-) indicates NO (default)\n" +
+						"- Enables interval responses with the format {from}-{to}\n" +
+						"Example:\n" +
+						"numerical_range=+"
+				},
+				truefalse_third_options: {
+					type: 'string',
+					description:
+						"Activate the third option for TRUE/FALSE questions.\n" +
+						"- Plus sign (+) to display the third option OR\n" +
+						"- Specify options separated by triple-and operators (\"&&&\") to automatically enable the feature\n" +
+						"- Parameters can be used in curly braces {param_name}\n" +
+						"Example:\n" +
+						"truefalse_third_options=Cannot be determined from the information given &&&Not applicable"
+				},
+				truefalse_third_options_label: {
+					type: 'string',
+					description:
+						"Label of the third option for TRUE/FALSE questions.\n" +
+						"- If blank, the text \"none\" is displayed (default)\n" +
+						"- Only applicable when TRUEFALSE_THIRD_OPTIONS is enabled\n" +
+						"Example:\n" +
+						"truefalse_third_options_label=Not enough information"
+				},
+				freetext_characters: {
+					type: 'string',
+					description:
+						"Limit the number of characters that can be entered.\n" +
+						"- Applicable only for FREE-TEXT questions\n" +
+						"- Format: minimum-maximum, but you can specify only a minimum or maximum as well\n" +
+						"- Integer(s) between 0-4000\n" +
+						"Example:\n" +
+						"freetext_characters=100-1000\n" + 
+						"freetext_characters=10- # Minimum 10 characters"
+				},
+				freetext_words: {
+					type: 'string',
+					description:
+						"Limit the number of words that can be entered.\n" +
+						"- Applicable only for FREE-TEXT questions\n" +
+						"- Format: minimum-maximum, but you can specify only a minimum or maximum as well\n" +
+						"- Integer(s) between 0-4000\n" +
+						"Example:\n" +
+						"freetext_words=-50 # Max. 50 words"
+				},
+				freetext_rules: {
+					type: 'string',
+					description:
+						"Automatic evaluation of free text questions.\n" +
+						"- Applicable only for FREE-TEXT questions\n" +
+						"- Notation: {type; keywords}\n" +
+						"- Type:\n" +
+						" - 1: if keywords are included within input, answer is correct (maximum points)\n" +
+						" - 2: if keywords are included within input, answer is wrong (0 points)\n" +
+						" - 3: if no keywords are included within input, answer is good (maximum points)\n" +
+						" - 4: if keywords are not included within input, answer is wrong (0 points)\n" +
+						"- Keywords: comma-separated list (must not contain semicolons!)\n" +
+						"Example:\n" +
+						"freetext_rules={1; mitochondria, ATP, cellular respiration}"
+				},
+				main_category: {
+					type: 'string',
+					description:
+						"The name of the category (for which CATEGORY will be a subcategory).\n" +
+						"- Empty by default, e.g. CATEGORY will be treated as the main category\n" +
+						"- Specify multiple levels (up to 2!) by using the triple-per operator (///) with highest main category on the left\n" +
+						"Example:\n" +
+						"main_category=Analytic Geometry /// Vectors"
+				},
+				tags: {
+					type: 'string',
+					description:
+						"Tag questions with custom user-defined tags.\n" +
+						"- Use ID or code of pre-registered tags\n" +
+						"- Only previously registered tags can be used (must be pre-registered in EduBase UI)\n" +
+						"- Specify multiple tags separated by triple-and operators (\"&&&\")\n" +
+						"- User-controlled categorization that can be created at user or organization level\n" +
+						"- Use cases include:\n" +
+						" - Personal content organization (e.g., \"My Calculus Questions\", \"Spring 2024\")\n" +
+						" - Department-level categorization (e.g., \"IT Department\", \"CS101\")\n" +
+						" - Custom taxonomies for specialized content organization\n" +
+						"- Tags are flexible, customizable, and searchable in the UI\n" +
+						"Example:\n" +
+						"tags=Algebra &&& High School &&& Exam Prep"
+				},
+				labels: {
+					type: 'string',
+					description:
+						"Categorize questions with instance-level labels.\n" +
+						"- Pre-defined values specific to each EduBase instance\n" +
+						"- Values controlled by instance administrators (cannot be created by users)\n" +
+						"- Consistent across all users in an instance\n" +
+						"- Specify multiple labels separated by triple-and operators (\"&&&\")\n" +
+						"- Use cases include:\n" +
+						" - System-wide flags (e.g., \"needs_review\", \"featured\")\n" +
+						" - Quality indicators (e.g., \"verified\", \"deprecated\")\n" +
+						" - Processing status (e.g., \"ai_generated\", \"manually_checked\")\n" +
+						"Example:\n" +
+						"label=verified &&& featured"
+				},
+				group: {
+					type: 'string',
+					description:
+						"Add a question to a question group in a Quiz set.\n" +
+						"- If the group doesn't exist, it will be created automatically as a complex task with default settings\n" +
+						"- Only applicable when uploading DIRECTLY to a Quiz set\n" +
+						"- Existing group settings will not be changed when adding more questions\n" +
+						"Example:\n" +
+						"group=Basic_Arithmetic"
 				},
 			},
 			required: ['id', 'type', 'question', 'answer', 'ai'],
