@@ -969,7 +969,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 						"group=Basic_Arithmetic"
 				},
 			},
-			required: ['id', 'type', 'question', 'answer', 'ai'],
+			required: ['id', 'type', 'question', 'answer', 'ai', 'language'],
 		},
 	},
 

@@ -900,7 +900,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS = [
                         "group=Basic_Arithmetic"
                 },
             },
-            required: ['id', 'type', 'question', 'answer', 'ai'],
+            required: ['id', 'type', 'question', 'answer', 'ai', 'language'],
         },
     },
     // DELETE /question - Permanently delete a question
