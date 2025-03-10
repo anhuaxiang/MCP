@@ -1,5 +1,19 @@
 import { Tool } from "@modelcontextprotocol/sdk/types.js";
 
+/*
+# Questions (Lowest Level in EduBase Hierarchy)
+
+Questions are the atomic building blocks of the EduBase Quiz system.
+They represent the lowest level in the EduBase hierarchy, below both Quiz sets and Exams.
+
+Key characteristics:
+- Questions have various types (choice, numerical, expression, text, etc.)
+- They can be parametrized for dynamic content generation
+- Questions are stored in QuestionBase or directly in Quiz sets
+- Questions cannot exist directly in Exams without being part of a Quiz set
+- Questions can use LaTeX for displaying mathematical notation (NEVER use single dollar signs $...$)
+*/
+
 /* Tool definitions */
 export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 	// GET /question - Check existing question
@@ -80,7 +94,8 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 						"- LaTeX Support (requires QUESTION_FORMAT=LATEX):\n" +
 						" - Inline: $$...$$\n" +
 						" - Block: $$$$...$$$$\n" +
-						" - The inline or block method must be used, because $...$ won't work!\n" +
+						" - IMPORTANT: When using LaTeX in questions, you MUST use double dollar signs ($$...$$) for inline math or quadruple dollar signs ($$$$...$$$$) for block math.\n" +
+						" - Single dollar signs ($...$) are NOT supported and will not render correctly. The inline or block method must be used, as $...$ won't work!\n" +
 						"- Parameters: Use curly braces {parameter_name} (defined in PARAMETERS field)\n" +
 						"- Quick expressions: Use ~~~expression~~~ for simple parameter calculations, e.g., area of a circle is ~~~{r}*{r}*pi~~~\n" +
 						"- Style formatting with EduTags:\n" +
@@ -114,7 +129,8 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 						"- LaTeX Support (requires QUESTION_FORMAT=LATEX):\n" +
 						" - Inline: $$...$$\n" +
 						" - Block: $$$$...$$$$\n" +
-						" - The inline or block method must be used, because $...$ won't work!\n" +
+						" - IMPORTANT: When using LaTeX in answer, you MUST use double dollar signs ($$...$$) for inline math or quadruple dollar signs ($$$$...$$$$) for block math.\n" +
+						" - Single dollar signs ($...$) are NOT supported and will not render correctly. The inline or block method must be used, as $...$ won't work!\n" +
 						"- Usage by question type:\n" +
 						" - CHOICE: The correct option\n" +
 						" - MULTIPLE-CHOICE: All correct options\n" +
@@ -125,7 +141,8 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 						" - SET types: Unordered collection of elements\n" +
 						"Example:\n" +
 						"answer=Paris\n" +
-						"answer=sin(x)^2+cos(x)^2"
+						"answer=sin(x)^2+cos(x)^2 # with type = EXPRESSION\n" +
+						"answer=$$sin^2(x)+cos^2(x)$$ # with type = CHOICE so it renders correctly"
 				},
 				language: {
 					type: 'string',
@@ -267,6 +284,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 						"Path where question will be stored in personal QuestionBase.\n" +
 						"- Default: /API\n" +
 						"- Supports hierarchical structure with forward slashes\n" +
+						"- Always start with a forward slash!\n" +
 						"Example:\n" +
 						"path=/Mathematics/Calculus/Derivatives"
 				},
@@ -281,7 +299,8 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 						"- LaTeX Support (requires QUESTION_FORMAT=LATEX):\n" +
 						" - Inline: $$...$$\n" +
 						" - Block: $$$$...$$$$\n" +
-						" - The inline or block method must be used, because $...$ won't work!\n" +
+						" - IMPORTANT: When using LaTeX in questions, you MUST use double dollar signs ($$...$$) for inline math or quadruple dollar signs ($$$$...$$$$) for block math.\n" +
+						" - Single dollar signs ($...$) are NOT supported and will not render correctly. The inline or block method must be used, as $...$ won't work!\n" +
 						"Example:\n" +
 						"options=London &&& Berlin &&& Madrid\n" +
 						"Example API call:\n" +
@@ -746,7 +765,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 						"- Explanation of the correctness of the answer or the incorrectness of the options\n" +
 						"- Helps learners understand their mistakes\n" +
 						"- Parameters can be used in explanations\n" +
-						"- LaTeX is not supported here, so we must not use it!\n" +
+						"- LaTeX is NOT supported here, so we MUST NOT use it!\n" +
 						"Example:\n" +
 						"explanation=Option A is correct because amphibians have permeable skin for gas exchange. Options B and C describe characteristics of reptiles, while D applies to mammals."
 				},
@@ -755,6 +774,8 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 					description:
 						"Questions to help (not solution steps, just guiding questions/notes).\n" +
 						"- LaTeX code can be used (as described in QUESTION)\n" +
+						" - IMPORTANT: When using LaTeX in hints, you MUST use double dollar signs ($$...$$) for inline math or quadruple dollar signs ($$$$...$$$$) for block math.\n" +
+						" - Single dollar signs ($...$) are NOT supported and will not render correctly. The inline or block method must be used, as $...$ won't work!\n" +
 						"- Specify multiple hints separated by triple-and operators (\"&&&\")\n" +
 						"- Not available for test takers in exam mode\n" +
 						"- Displayed only when explicitly requested, one by one\n" +
@@ -767,6 +788,8 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 					description:
 						"Step-by-step solution.\n" +
 						"- LaTeX code can be used (as described in QUESTION)\n" +
+						" - IMPORTANT: When using LaTeX in solution, you MUST use double dollar signs ($$...$$) for inline math or quadruple dollar signs ($$$$...$$$$) for block math.\n" +
+						" - Single dollar signs ($...$) are NOT supported and will not render correctly. The inline or block method must be used, as $...$ won't work!\n" +
 						"- Specify multiple solution steps separated by triple-and operators (\"&&&\")\n" +
 						"- Each step is displayed one at a time\n" +
 						"- Can be penalized using SOLUTION_PENALTY\n" +
@@ -946,7 +969,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 						"group=Basic_Arithmetic"
 				},
 			},
-			required: ['id', 'type', 'question', 'answer', 'ai'],
+			required: ['id', 'type', 'question', 'answer', 'ai', 'language'],
 		},
 	},
 
