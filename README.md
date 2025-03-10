@@ -26,11 +26,9 @@ From higher education institutions to corporate training departments, EduBase sc
 
 Collaboratively creating and uploading questions, scheduling exams and analyzing user results with Claude:
 
-<div align="center">
-  <a href="https://www.youtube.com/watch?v=jvGP-5NzRPs">
-    <img src="https://img.youtube.com/vi/jvGP-5NzRPs/maxresdefault.jpg" alt="Demonstrating EduBase's MCP server to collaboratively create and upload questions, schedule exams and analyze results." width="600"/>
-  </a>
-</div>
+<a href="https://www.youtube.com/watch?v=jvGP-5NzRPs">
+  <img src="https://img.youtube.com/vi/jvGP-5NzRPs/maxresdefault.jpg" alt="Demonstrating EduBase's MCP server to collaboratively create and upload questions, schedule exams and analyze results." width="600"/>
+</a>
 
 ### Obtaining your API credentials
 
