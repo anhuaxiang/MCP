@@ -1,6 +1,6 @@
 import { Tool } from "@modelcontextprotocol/sdk/types.js";
 
-/* 
+/*
 # EduBase Quiz Hierarchical Structure
 
 EduBase Quiz follows a clear three-level hierarchical structure that AI models should understand when generating content:

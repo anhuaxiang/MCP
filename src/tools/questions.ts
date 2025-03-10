@@ -1,6 +1,6 @@
 import { Tool } from "@modelcontextprotocol/sdk/types.js";
 
-/* 
+/*
 # Questions (Lowest Level in EduBase Hierarchy)
 
 Questions are the atomic building blocks of the EduBase Quiz system.
@@ -94,7 +94,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 						"- LaTeX Support (requires QUESTION_FORMAT=LATEX):\n" +
 						" - Inline: $$...$$\n" +
 						" - Block: $$$$...$$$$\n" +
-						" - IMPORTANT: When using LaTeX in questions, you MUST use double dollar signs ($$...$$) for inline math or quadruple dollar signs ($$$$...$$$$) for block math.\n" + 
+						" - IMPORTANT: When using LaTeX in questions, you MUST use double dollar signs ($$...$$) for inline math or quadruple dollar signs ($$$$...$$$$) for block math.\n" +
 						" - Single dollar signs ($...$) are NOT supported and will not render correctly. The inline or block method must be used, as $...$ won't work!\n" +
 						"- Parameters: Use curly braces {parameter_name} (defined in PARAMETERS field)\n" +
 						"- Quick expressions: Use ~~~expression~~~ for simple parameter calculations, e.g., area of a circle is ~~~{r}*{r}*pi~~~\n" +
@@ -129,7 +129,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 						"- LaTeX Support (requires QUESTION_FORMAT=LATEX):\n" +
 						" - Inline: $$...$$\n" +
 						" - Block: $$$$...$$$$\n" +
-						" - IMPORTANT: When using LaTeX in answer, you MUST use double dollar signs ($$...$$) for inline math or quadruple dollar signs ($$$$...$$$$) for block math.\n" + 
+						" - IMPORTANT: When using LaTeX in answer, you MUST use double dollar signs ($$...$$) for inline math or quadruple dollar signs ($$$$...$$$$) for block math.\n" +
 						" - Single dollar signs ($...$) are NOT supported and will not render correctly. The inline or block method must be used, as $...$ won't work!\n" +
 						"- Usage by question type:\n" +
 						" - CHOICE: The correct option\n" +
@@ -299,7 +299,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 						"- LaTeX Support (requires QUESTION_FORMAT=LATEX):\n" +
 						" - Inline: $$...$$\n" +
 						" - Block: $$$$...$$$$\n" +
-						" - IMPORTANT: When using LaTeX in questions, you MUST use double dollar signs ($$...$$) for inline math or quadruple dollar signs ($$$$...$$$$) for block math.\n" + 
+						" - IMPORTANT: When using LaTeX in questions, you MUST use double dollar signs ($$...$$) for inline math or quadruple dollar signs ($$$$...$$$$) for block math.\n" +
 						" - Single dollar signs ($...$) are NOT supported and will not render correctly. The inline or block method must be used, as $...$ won't work!\n" +
 						"Example:\n" +
 						"options=London &&& Berlin &&& Madrid\n" +
@@ -774,7 +774,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 					description:
 						"Questions to help (not solution steps, just guiding questions/notes).\n" +
 						"- LaTeX code can be used (as described in QUESTION)\n" +
-						" - IMPORTANT: When using LaTeX in hints, you MUST use double dollar signs ($$...$$) for inline math or quadruple dollar signs ($$$$...$$$$) for block math.\n" + 
+						" - IMPORTANT: When using LaTeX in hints, you MUST use double dollar signs ($$...$$) for inline math or quadruple dollar signs ($$$$...$$$$) for block math.\n" +
 						" - Single dollar signs ($...$) are NOT supported and will not render correctly. The inline or block method must be used, as $...$ won't work!\n" +
 						"- Specify multiple hints separated by triple-and operators (\"&&&\")\n" +
 						"- Not available for test takers in exam mode\n" +
@@ -788,7 +788,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 					description:
 						"Step-by-step solution.\n" +
 						"- LaTeX code can be used (as described in QUESTION)\n" +
-						" - IMPORTANT: When using LaTeX in solution, you MUST use double dollar signs ($$...$$) for inline math or quadruple dollar signs ($$$$...$$$$) for block math.\n" + 
+						" - IMPORTANT: When using LaTeX in solution, you MUST use double dollar signs ($$...$$) for inline math or quadruple dollar signs ($$$$...$$$$) for block math.\n" +
 						" - Single dollar signs ($...$) are NOT supported and will not render correctly. The inline or block method must be used, as $...$ won't work!\n" +
 						"- Specify multiple solution steps separated by triple-and operators (\"&&&\")\n" +
 						"- Each step is displayed one at a time\n" +

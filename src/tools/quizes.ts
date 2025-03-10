@@ -1,6 +1,6 @@
 import { Tool } from "@modelcontextprotocol/sdk/types.js";
 
-/* 
+/*
 # Quiz Sets (Middle Level in EduBase Hierarchy)
 
 Quiz sets are collections of questions and/or question groups in EduBase.

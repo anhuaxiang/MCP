@@ -1,6 +1,6 @@
 import { Tool } from "@modelcontextprotocol/sdk/types.js";
 
-/* 
+/*
 # Exams (Highest Level in EduBase Hierarchy)
 
 Exams are time-limited, secure instances of Quiz sets in EduBase.
