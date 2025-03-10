@@ -267,6 +267,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 						"Path where question will be stored in personal QuestionBase.\n" +
 						"- Default: /API\n" +
 						"- Supports hierarchical structure with forward slashes\n" +
+						"- Always start with a forward slash!\n" +
 						"Example:\n" +
 						"path=/Mathematics/Calculus/Derivatives"
 				},
