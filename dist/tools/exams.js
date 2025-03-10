@@ -1,3 +1,17 @@
+/*
+# Exams (Highest Level in EduBase Hierarchy)
+
+Exams are time-limited, secure instances of Quiz sets in EduBase.
+They represent the highest level in the EduBase hierarchy, above both Questions and Quiz sets.
+
+Key characteristics:
+- Exams are always created from existing Quiz sets
+- They have specific start and end times
+- They include additional security features (cheating detection, prevention of simultaneous account access during exam)
+- Usually restrict access to hints/solutions
+- Generally limited to one attempt per user
+- Questions cannot exist directly in Exams without being part of a Quiz set
+*/
 /* Tool definitions */
 export const EDUBASE_API_TOOLS_EXAMS = [
     // GET /exams - List owned and managed exams
@@ -41,7 +55,7 @@ export const EDUBASE_API_TOOLS_EXAMS = [
     // POST /exam - Create a new exam from an existing Quiz set
     {
         name: 'edubase_post_exam',
-        description: "Create a new exam from an existing Quiz set.",
+        description: "Create a new exam from an existing Quiz set. Note: Exams MUST be created from existing Quiz sets as per the EduBase hierarchical structure.",
         inputSchema: {
             type: 'object',
             properties: {

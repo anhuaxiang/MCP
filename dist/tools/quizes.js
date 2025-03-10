@@ -1,3 +1,15 @@
+/*
+# Quiz Sets (Middle Level in EduBase Hierarchy)
+
+Quiz sets are collections of questions and/or question groups in EduBase.
+They sit between Questions (lowest level) and Exams (highest level) in the hierarchy.
+
+Key characteristics:
+- Quiz sets contain a set of questions or question groups
+- They can be used for practice or to power Exams
+- Questions in a Quiz set can be random or fixed
+- One Quiz set can be used to create multiple Exams
+*/
 /* Tool definitions */
 export const EDUBASE_API_TOOLS_QUIZES = [
     // GET /quizes - List owned and managed Quiz sets

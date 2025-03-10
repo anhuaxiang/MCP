@@ -1,3 +1,16 @@
+/*
+# Questions (Lowest Level in EduBase Hierarchy)
+
+Questions are the atomic building blocks of the EduBase Quiz system.
+They represent the lowest level in the EduBase hierarchy, below both Quiz sets and Exams.
+
+Key characteristics:
+- Questions have various types (choice, numerical, expression, text, etc.)
+- They can be parametrized for dynamic content generation
+- Questions are stored in QuestionBase or directly in Quiz sets
+- Questions cannot exist directly in Exams without being part of a Quiz set
+- Questions can use LaTeX for displaying mathematical notation (NEVER use single dollar signs $...$)
+*/
 /* Tool definitions */
 export const EDUBASE_API_TOOLS_QUESTIONS = [
     // GET /question - Check existing question
