@@ -22,6 +22,14 @@ EduBase revolutionizes digital learning with its unique combination of features:
 
 From higher education institutions to corporate training departments, EduBase scales to meet your specific needs while maintaining an intuitive user experience across all devices.
 
+### Demo video
+
+Collaboratively creating and uploading questions, scheduling exams and analyzing user results with Claude:
+
+<a href="https://www.youtube.com/watch?v=jvGP-5NzRPs">
+  <img src="https://img.youtube.com/vi/jvGP-5NzRPs/maxresdefault.jpg" alt="Demonstrating EduBase's MCP server to collaboratively create and upload questions, schedule exams and analyze results." width="600"/>
+</a>
+
 ### Obtaining your API credentials
 
 Once logged in, on your Dashboard, search for the Integrations menu, click "add integration" and choose the type "EduBase API".
