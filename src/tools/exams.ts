@@ -20,7 +20,7 @@ export const EDUBASE_API_TOOLS_EXAMS: Tool[] = [
 	// GET /exams - List owned and managed exams
 	{
 		name: 'edubase_get_exams',
-		description: "List owned and managed exams.",
+		description: "List owned and managed exams. Exams are the highest level in the EduBase Quiz hierarchy, built from Quiz sets.",
 		inputSchema: {
 			type: 'object',
 			properties: {
@@ -60,7 +60,7 @@ export const EDUBASE_API_TOOLS_EXAMS: Tool[] = [
 	// POST /exam - Create a new exam from an existing Quiz set
 	{
 		name: 'edubase_post_exam',
-		description: "Create a new exam from an existing Quiz set. Note: Exams MUST be created from existing Quiz sets as per the EduBase hierarchical structure.",
+		description: "Create a new exam from an existing Quiz set. Exams are at the top level of the EduBase Quiz hierarchy and MUST be created from existing Quiz sets. They are time-constrained, secured assessment instances of Quiz sets.",
 		inputSchema: {
 			type: 'object',
 			properties: {
