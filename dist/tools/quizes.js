@@ -15,7 +15,7 @@ export const EDUBASE_API_TOOLS_QUIZES = [
     // GET /quizes - List owned and managed Quiz sets
     {
         name: 'edubase_get_quizes',
-        description: "List owned and managed Quiz sets.",
+        description: "List owned and managed Quiz sets. Quiz sets are named collections of questions that sit at the middle level of the EduBase Quiz hierarchy.",
         inputSchema: {
             type: 'object',
             properties: {
@@ -38,7 +38,7 @@ export const EDUBASE_API_TOOLS_QUIZES = [
     // GET /quiz - Get/check Quiz set
     {
         name: 'edubase_get_quiz',
-        description: "Get/check Quiz set.",
+        description: "Get/check Quiz set. Containing questions and powering Exams.",
         inputSchema: {
             type: 'object',
             properties: {
@@ -53,7 +53,7 @@ export const EDUBASE_API_TOOLS_QUIZES = [
     // POST /quiz - Create a new Quiz set
     {
         name: 'edubase_post_quiz',
-        description: "Create a new Quiz set",
+        description: "Create a new Quiz set. Quiz sets are collections of questions that can be used for practice or to power multiple Exams.",
         inputSchema: {
             type: 'object',
             properties: {
@@ -104,7 +104,7 @@ export const EDUBASE_API_TOOLS_QUIZES = [
     // GET /quiz:questions - List all questions and question groups in a Quiz set
     {
         name: 'edubase_get_quiz_questions',
-        description: "List all questions and question groups in a Quiz set.",
+        description: "List all questions and question groups in a Quiz set. Quiz sets contain questions (lowest level) and can be used by exams (highest level).",
         inputSchema: {
             type: 'object',
             properties: {
@@ -119,7 +119,7 @@ export const EDUBASE_API_TOOLS_QUIZES = [
     // POST /quiz:questions - Assign question(s) to a Quiz set, or one of its question group
     {
         name: 'edubase_post_quiz_questions',
-        description: "Assign question(s) to a Quiz set, or one of its question group.",
+        description: "Assign question(s) to a Quiz set, or one of its question group. Questions can exist independently from Quiz sets.",
         inputSchema: {
             type: 'object',
             properties: {

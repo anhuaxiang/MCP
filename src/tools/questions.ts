@@ -19,7 +19,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 	// GET /question - Check existing question
 	{
 		name: 'edubase_get_question',
-		description: "Check existing question.",
+		description: "Check existing question. Questions are the lowest level in the EduBase hierarchy, serving as the building blocks for Quiz sets.",
 		inputSchema: {
 			type: 'object',
 			properties: {
@@ -35,7 +35,7 @@ export const EDUBASE_API_TOOLS_QUESTIONS: Tool[] = [
 	// POST /question - Publish or update a question
 	{
 		name: 'edubase_post_question',
-		description: "Publish or update a question.",
+		description: "Publish or update a question. Questions are the atomic building blocks of the EduBase Quiz system and represent the lowest level in the hierarchy (Questions -> Quiz sets -> Exams).",
 		inputSchema: {
 			type: 'object',
 			properties: {
