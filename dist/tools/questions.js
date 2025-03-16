@@ -526,6 +526,17 @@ export const EDUBASE_API_TOOLS_QUESTIONS = [
                         "  * So {p_1} will be a different letter than {p_2}\n" +
                         " - Example: {primes; PERMUTATION; 2; 3; 5; 7}\n" +
                         "  * So both {primes_1} and {primes_2} will be different single digit primes\n" +
+                        "7. FORMAT:\n" +
+                        " - Format: {name; FORMAT; parameter; type; ...}\n" +
+                        " - Format parameters based on other parameters\n" +
+                        " - Supported types: NUMBER, NUMERTEXT, ROMAN\n" +
+                        " - Optional extra parameters based on type\n" +
+                        "  * NUMBER\n" +
+                        "   * precision: number of decimal places\n" +
+                        " - Examples:\n" +
+                        "  * {pp; FORMAT; p; NUMBER; 1} - format as number rounded to 1 decimal\n" +
+                        "  * {pp; FORMAT; p; NUMBERTEXT} - format number as text\n" +
+                        "  * {pp; FORMAT; p; ROMAN} - format number as Roman numeral\n" +
                         "Best Practices:\n" +
                         " - Order parameters so dependent ones come later\n" +
                         " - Use simple notation when possible\n" +
