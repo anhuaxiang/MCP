@@ -3,6 +3,7 @@
 # EduBase MCP server
 
 [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/EduBase/MCP/main.svg)](https://results.pre-commit.ci/latest/github/EduBase/MCP/main)
+[![smithery badge](https://smithery.ai/badge/@EduBase/MCP)](https://smithery.ai/server/@EduBase/MCP)
 
 This repository contains the **implementation of the Model Context Protocol** (MCP) server **for the EduBase platform**. It allows MCP clients (for example Claude Desktop) and LLMs to interact with your EduBase account and perform tasks on your behalf.
 
@@ -44,7 +45,15 @@ Each documented API endpoint is available as a separate tool, named `edubase_<me
 
 ## Usage with Claude Desktop
 
-Add the following to your `claude_desktop_config.json`:
+### Installing via Smithery
+
+To install EduBase MCP server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@EduBase/MCP):
+
+```bash
+npx -y @smithery/cli install @EduBase/MCP --client claude
+```
+
+ Add the following to your `claude_desktop_config.json`:
 
 ### node
 
