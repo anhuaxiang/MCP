@@ -1,0 +1,37 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - edubaseApiUrl
+      - edubaseApiApp
+      - edubaseApiKey
+    properties:
+      edubaseApiUrl:
+        type: string
+        description: The API URL for EduBase
+      edubaseApiApp:
+        type: string
+        description: The integration app ID for EduBase
+      edubaseApiKey:
+        type: string
+        description: The secret key for the EduBase API
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({
+      command: 'node',
+      args: ['dist/index.js'],
+      env: {
+        EDUBASE_API_URL: config.edubaseApiUrl,
+        EDUBASE_API_APP: config.edubaseApiApp,
+        EDUBASE_API_KEY: config.edubaseApiKey
+      }
+    })
+  exampleConfig:
+    edubaseApiUrl: https://domain.edubase.net/api
+    edubaseApiApp: your_integration_app_id
+    edubaseApiKey: your_integration_secret_key
