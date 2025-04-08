@@ -79,7 +79,7 @@ Before running the MCP server, make sure you have **Node.js installed**. You can
 }
 ```
 
-### Using Docker
+#### Using Docker
 
 Before running the MCP server, make sure you have **Docker installed and is running**. You can download it from [docker.com](https://www.docker.com/) or use a package manager. Do not forget to **configure the environmental variables**!
 
