@@ -53,9 +53,13 @@ To install EduBase MCP server for Claude Desktop automatically via [Smithery](ht
 npx -y @smithery/cli install @EduBase/MCP --client claude
 ```
 
- Add the following to your `claude_desktop_config.json`:
+### Installing manually
 
-### node
+Add the following to your `claude_desktop_config.json`:
+
+#### Using Node.js
+
+Before running the MCP server, make sure you have **Node.js installed**. You can download it from [nodejs.org](https://nodejs.org/) or use a package manager like `brew`. Download EduBase MCP server release or clone the repository and run `npm run build` to build the server. Do not forget to adjust `/path/to/dist` to the actual directory and **configure the environmental variables**!
 
 ```json
 {
@@ -75,7 +79,9 @@ npx -y @smithery/cli install @EduBase/MCP --client claude
 }
 ```
 
-### docker
+### Using Docker
+
+Before running the MCP server, make sure you have **Docker installed and is running**. You can download it from [docker.com](https://www.docker.com/) or use a package manager. Do not forget to **configure the environmental variables**!
 
 ```json
 {
