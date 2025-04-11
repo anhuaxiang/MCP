@@ -35,7 +35,7 @@ Collaboratively creating and uploading questions, scheduling exams and analyzing
 
 Once logged in, on your Dashboard, search for the Integrations menu, click "add integration" and choose the type "EduBase API".
 
-**If you don't see this option**, feel free to contact us to request access at [info@edubase.net](mailto:info@edubase.net).
+**If you don't see this option**, enter the `MCPGITHUB` activation code or feel free to contact us to request access at [info@edubase.net](mailto:info@edubase.net).
 
 <img src="https://shared.edubase.net/mcp/EduBase_Integration_page_with_API_credentials.png" alt="EduBase API credentials page" width="500" />
 
