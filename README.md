@@ -45,14 +45,6 @@ Each documented API endpoint is available as a separate tool, named `edubase_<me
 
 ## Usage with Claude Desktop
 
-### Installing via Smithery
-
-To install EduBase MCP server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@EduBase/MCP):
-
-```bash
-npx -y @smithery/cli install @EduBase/MCP --client claude
-```
-
 ### Installing manually
 
 Add the following to your `claude_desktop_config.json`:
@@ -108,6 +100,14 @@ Before running the MCP server, make sure you have **Docker installed and is runn
     }
   }
 }
+```
+
+### Installing via Smithery
+
+To install EduBase MCP server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@EduBase/MCP):
+
+```bash
+npx -y @smithery/cli install @EduBase/MCP --client claude
 ```
 
 ## Contact
