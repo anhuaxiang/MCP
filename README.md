@@ -7,6 +7,8 @@
 
 This repository contains the **implementation of the Model Context Protocol** (MCP) server **for the EduBase platform**. It allows MCP clients (for example Claude Desktop) and LLMs to interact with your EduBase account and perform tasks on your behalf.
 
+![EduBase MCP demo GIF: Claude uploads math questions](https://shared.edubase.net/mcp/EduBaseMCPdemomath.gif)
+
 ## What is EduBase?
 
 EduBase is an innovative, modular, online educational platform that makes learning more enjoyable, simpler and interactive, suitable for educational institutions or enterprises.
