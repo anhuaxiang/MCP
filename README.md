@@ -45,6 +45,8 @@ Each documented API endpoint is available as a separate tool, named `edubase_<me
 
 ## Usage with Claude Desktop
 
+For a step-by-step walkthrough, see our blog post on how to [connect EduBase with Claude: The Complete MCP Integration Guide](edubase.blog/claude-mcp-integration-guide/).
+
 ### Installing manually
 
 Add the following to your `claude_desktop_config.json`:
