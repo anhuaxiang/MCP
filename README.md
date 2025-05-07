@@ -7,6 +7,8 @@
 
 This repository contains the **implementation of the Model Context Protocol** (MCP) server **for the EduBase platform**. It allows MCP clients (for example Claude Desktop) and LLMs to interact with your EduBase account and perform tasks on your behalf.
 
+![EduBase MCP demo GIF: Claude uploads math questions](https://shared.edubase.net/mcp/EduBaseMCPdemomath.gif)
+
 ## What is EduBase?
 
 EduBase is an innovative, modular, online educational platform that makes learning more enjoyable, simpler and interactive, suitable for educational institutions or enterprises.
@@ -45,13 +47,7 @@ Each documented API endpoint is available as a separate tool, named `edubase_<me
 
 ## Usage with Claude Desktop
 
-### Installing via Smithery
-
-To install EduBase MCP server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@EduBase/MCP):
-
-```bash
-npx -y @smithery/cli install @EduBase/MCP --client claude
-```
+For a step-by-step walkthrough, see our blog post on how to [connect EduBase with Claude: The Complete MCP Integration Guide](edubase.blog/claude-mcp-integration-guide/).
 
 ### Installing manually
 
@@ -108,6 +104,14 @@ Before running the MCP server, make sure you have **Docker installed and is runn
     }
   }
 }
+```
+
+### Installing via Smithery
+
+To install EduBase MCP server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@EduBase/MCP):
+
+```bash
+npx -y @smithery/cli install @EduBase/MCP --client claude
 ```
 
 ## Contact
