@@ -1,5 +1,5 @@
 {
-  "name": "@edubase/mcp",
+  "name": "edubase-mcp",
   "version": "1.0.10",
   "description": "EduBase MCP server",
   "license": "MIT",
